@@ -1,0 +1,304 @@
+{
+  "schema_version": "case-library-seed-0.1",
+  "dataset_kind": "verified_adaptation_relationship_seeds",
+  "generated_date": "2026-09-30",
+  "intended_screen_release_range": {
+    "start": "1980-01-01",
+    "end": "2026-09-30"
+  },
+  "coverage_status": "partial_seed_only",
+  "coverage_note": "仅六条已核实改编关系，不是1980—2026全量影视数据库；缺失指标保持空列表，不以0替代",
+  "records": [
+    {
+      "work_id": "seed-001",
+      "title": "Heat and Dust",
+      "release_year": 1983,
+      "screen_format": "film",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-001-source-1",
+          "title": "Heat and Dust",
+          "author": "Ruth Prawer Jhabvala",
+          "source_type": "novel",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-001"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-001",
+          "url": "https://thebookerprizes.com/the-booker-library/features/booker-prize-books-that-have-been-adapted-for-film-and-television",
+          "publisher": "The Booker Prizes",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    },
+    {
+      "work_id": "seed-002",
+      "title": "Schindler’s List",
+      "release_year": 1993,
+      "screen_format": "film",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-002-source-1",
+          "title": "Schindler’s Ark",
+          "author": "Thomas Keneally",
+          "source_type": "book",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-002"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-002",
+          "url": "https://thebookerprizes.com/the-booker-library/features/booker-prize-books-that-have-been-adapted-for-film-and-television",
+          "publisher": "The Booker Prizes",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    },
+    {
+      "work_id": "seed-003",
+      "title": "Life of Pi",
+      "release_year": 2012,
+      "screen_format": "film",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-003-source-1",
+          "title": "Life of Pi",
+          "author": "Yann Martel",
+          "source_type": "novel",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-003"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-003",
+          "url": "https://thebookerprizes.com/the-booker-library/features/booker-prize-books-that-have-been-adapted-for-film-and-television",
+          "publisher": "The Booker Prizes",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    },
+    {
+      "work_id": "seed-004",
+      "title": "Wolf Hall",
+      "release_year": 2015,
+      "screen_format": "television_series",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-004-source-1",
+          "title": "Wolf Hall",
+          "author": "Hilary Mantel",
+          "source_type": "novel",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-004"
+        },
+        {
+          "source_id": "seed-004-source-2",
+          "title": "Bring Up the Bodies",
+          "author": "Hilary Mantel",
+          "source_type": "novel",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-004"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-004",
+          "url": "https://thebookerprizes.com/the-booker-library/features/booker-prize-books-that-have-been-adapted-for-film-and-television",
+          "publisher": "The Booker Prizes",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    },
+    {
+      "work_id": "seed-005",
+      "title": "我的阿勒泰",
+      "release_year": 2024,
+      "screen_format": "television_series",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-005-source-1",
+          "title": "我的阿勒泰",
+          "author": "李娟",
+          "source_type": "essay_collection",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-005"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-005",
+          "url": "https://news.cctv.com/2024/05/07/ARTIjisV03C7MtvvW3obh34H240507.shtml",
+          "publisher": "央视网",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    },
+    {
+      "work_id": "seed-006",
+      "title": "执笔",
+      "release_year": 2024,
+      "screen_format": "micro_drama",
+      "record_status": "research_candidate",
+      "verified_fields": [
+        "title",
+        "release_year",
+        "adaptation_sources"
+      ],
+      "adaptation_sources": [
+        {
+          "source_id": "seed-006-source-1",
+          "title": "执笔者",
+          "author": "林言年",
+          "source_type": "online_novel",
+          "relation_type": "adapted_from",
+          "verification_status": "source_confirmed",
+          "evidence_id": "evidence-006"
+        }
+      ],
+      "award_records": [],
+      "rating_snapshots": [],
+      "box_office_snapshots": [],
+      "short_drama_metrics": [],
+      "analysis_status": "not_analyzed",
+      "selection_criteria_status": "not_evaluated",
+      "evidence": [
+        {
+          "evidence_id": "evidence-006",
+          "url": "https://www.chinawriter.com.cn/n1/2024/0806/c404027-40293380.html",
+          "publisher": "中国作家网",
+          "checked_date": "2026-09-30",
+          "supports": [
+            "title",
+            "release_year",
+            "adaptation_sources"
+          ],
+          "note": "仅核实身份与改编来源，未核实当前评分、票房或完整奖项"
+        }
+      ],
+      "notes": [
+        "本记录不是对高评分、高票房或获奖的完整认定",
+        "未附原作全文、影视剧本、字幕或海报"
+      ]
+    }
+  ]
+}

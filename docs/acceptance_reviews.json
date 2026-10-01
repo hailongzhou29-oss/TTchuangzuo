@@ -1,0 +1,62 @@
+{
+  "P01": {
+    "contract": "L；名称必填，类型必选，目录可沿用默认 | 创建独立项目；重名提示但允许不同目录 |",
+    "status": "本地合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 新建必填、类型、同名确认、自选目录创建与重开发现", "tests/test_local_workflow.py: 外部项目登记、只发现明确登记目录、登记失败保留文件"],
+    "remaining": "目录选择器使用固定测试输入；所选位置实际创建SQLite项目并在重开工作区后检索到。"
+  },
+  "P02": {
+    "contract": "L；选 MD/TXT/JSON，DOCX 仅在解析器验收后启用 | 先预览编码、结构与未识别内容；确认后导入 |",
+    "status": "本地合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 导入预览、确认保留未知内容、取消导入、DOCX未启用", "tests/test_local_workflow.py: test_import_chinese_encoding_and_json_preview"],
+    "remaining": "DOCX继续关闭；文件选择器以固定测试输入代替人工点选，没有供应商调用。"
+  },
+  "P03": {
+    "contract": "L；项目可读 | 恢复上次节点、视图和光标 |",
+    "status": "本地Qt合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 重开继续创作恢复文档视图与UTF16光标"],
+    "remaining": "已修复首页项目选择与上次正文项目不一致导致继续打开错项目；不代表其他工作视图全项已验收。"
+  },
+  "P04": {
+    "contract": "L；按名称、标签和摘要 | 不搜索凭据；无结果显示清除筛选 |",
+    "status": "本地Qt合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 名称标签摘要搜索、独立凭据库不参与搜索", "docs/evidence/home_visual_results.json: 搜索无结果提供清除筛选、清除筛选恢复实际项目"],
+    "remaining": "凭据库检查使用隔离测试标记，不读取用户真实密钥。"
+  },
+  "P05": {
+    "contract": "L | 保留排序和筛选 |",
+    "status": "本地Qt合同验证通过",
+    "evidence": ["tools/visual_acceptance.py", "docs/evidence/home_visual_results.json: 卡片列表切换保持排序、卡片列表切换保留筛选、卡片/列表保留项目选择"],
+    "remaining": "本结论只覆盖P05，不代表三主题完整视觉或其他控件已验收。"
+  },
+  "P06": {
+    "contract": "L；选择是否复制素材 | 生成新 ID，不携带模型会话或 KEY |",
+    "status": "本地合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 素材复制两种选择", "tests/test_local_workflow.py: 副本独立与素材省略检查", "tests/test_project_context.py: test_copy_does_not_carry_model_conversations_or_usage", "app/core/services.py: 只复制数据库和登记素材；清空会话、任务、用量及操作历史"],
+    "remaining": "本结论不涉及真实供应商调用；应用凭据位于独立偏好目录，不属于备份或复制输入。"
+  },
+  "P07": {
+    "contract": "L；校验名称 | 不改变作品内部稳定 ID |",
+    "status": "本地Qt合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 重命名保持项目及内部文档稳定ID、空名称提示错误且原项目不变"],
+    "remaining": "有效名称与空名称分支已验证；不代表所有来源文档重命名等其他控件已验收。"
+  },
+  "P08": {
+    "contract": "L | 从活跃列表隐藏，可恢复 |",
+    "status": "本地Qt合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 归档从活跃列表隐藏、取消归档保留原始项目和文档ID"],
+    "remaining": "不代表项目永久清理已实现；此控件只切换归档状态。"
+  },
+  "P09": {
+    "contract": "L；确认项目名 | 有运行任务时先处理任务；不永久删除 |",
+    "status": "部分验证",
+    "evidence": ["docs/evidence/project_ui_results.json: 执行记录保护与回收恢复", "tests/test_project_context.py: 全部未结束文字任务恢复", "tests/test_image_workflow.py: 双表图片恢复", "tests/test_task_runtime.py: 两个实际进程接手查询和下载、重复执行拒绝、恢复不继承所有权"],
+    "remaining": "本地及跨进程所有权已用实际进程和固定响应验证，没有调用真实供应商。真实供应商取消与远端状态仍未实测；全项目验收保持未完成。"
+  },
+  "P10": {
+    "contract": "L；选择文件 | 完整性校验后恢复到新目录，默认不覆盖 |",
+    "status": "本地合同验证通过",
+    "evidence": ["docs/evidence/project_ui_results.json: 界面备份落盘、新项目恢复不覆盖原项目、取消恢复", "tests/test_local_workflow.py: 资产一致性备份恢复、损坏和路径逃逸拒绝"],
+    "remaining": "文件选择与确认使用固定测试输入；实际SQLite备份、归档文件写入和新目录恢复均执行。"
+  }
+}

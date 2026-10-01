@@ -1,0 +1,1665 @@
+{
+  "controls": [
+    {
+      "id": "P01",
+      "name": "新建项目",
+      "contract": "L；名称必填，类型必选，目录可沿用默认 | 创建独立项目；重名提示但允许不同目录 |",
+      "source_line": 138,
+      "status": "本地合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 新建必填、类型、同名确认、自选目录创建与重开发现",
+        "tests/test_local_workflow.py: 外部项目登记、只发现明确登记目录、登记失败保留文件"
+      ],
+      "remaining": "目录选择器使用固定测试输入；所选位置实际创建SQLite项目并在重开工作区后检索到。"
+    },
+    {
+      "id": "P02",
+      "name": "从文件导入",
+      "contract": "L；选 MD/TXT/JSON，DOCX 仅在解析器验收后启用 | 先预览编码、结构与未识别内容；确认后导入 |",
+      "source_line": 139,
+      "status": "本地合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 导入预览、确认保留未知内容、取消导入、DOCX未启用",
+        "tests/test_local_workflow.py: test_import_chinese_encoding_and_json_preview"
+      ],
+      "remaining": "DOCX继续关闭；文件选择器以固定测试输入代替人工点选，没有供应商调用。"
+    },
+    {
+      "id": "P03",
+      "name": "继续创作",
+      "contract": "L；项目可读 | 恢复上次节点、视图和光标 |",
+      "source_line": 140,
+      "status": "本地Qt合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 重开继续创作恢复文档视图与UTF16光标"
+      ],
+      "remaining": "已修复首页项目选择与上次正文项目不一致导致继续打开错项目；不代表其他工作视图全项已验收。"
+    },
+    {
+      "id": "P04",
+      "name": "搜索项目",
+      "contract": "L；按名称、标签和摘要 | 不搜索凭据；无结果显示清除筛选 |",
+      "source_line": 141,
+      "status": "本地Qt合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 名称标签摘要搜索、独立凭据库不参与搜索",
+        "docs/evidence/home_visual_results.json: 搜索无结果提供清除筛选、清除筛选恢复实际项目"
+      ],
+      "remaining": "凭据库检查使用隔离测试标记，不读取用户真实密钥。"
+    },
+    {
+      "id": "P05",
+      "name": "卡片／列表",
+      "contract": "L | 保留排序和筛选 |",
+      "source_line": 142,
+      "status": "本地Qt合同验证通过",
+      "evidence": [
+        "tools/visual_acceptance.py",
+        "docs/evidence/home_visual_results.json: 卡片列表切换保持排序、卡片列表切换保留筛选、卡片/列表保留项目选择"
+      ],
+      "remaining": "本结论只覆盖P05，不代表三主题完整视觉或其他控件已验收。"
+    },
+    {
+      "id": "P06",
+      "name": "复制项目",
+      "contract": "L；选择是否复制素材 | 生成新 ID，不携带模型会话或 KEY |",
+      "source_line": 143,
+      "status": "本地合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 素材复制两种选择",
+        "tests/test_local_workflow.py: 副本独立与素材省略检查",
+        "tests/test_project_context.py: test_copy_does_not_carry_model_conversations_or_usage",
+        "app/core/services.py: 只复制数据库和登记素材；清空会话、任务、用量及操作历史"
+      ],
+      "remaining": "本结论不涉及真实供应商调用；应用凭据位于独立偏好目录，不属于备份或复制输入。"
+    },
+    {
+      "id": "P07",
+      "name": "重命名",
+      "contract": "L；校验名称 | 不改变作品内部稳定 ID |",
+      "source_line": 144,
+      "status": "本地Qt合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 重命名保持项目及内部文档稳定ID、空名称提示错误且原项目不变"
+      ],
+      "remaining": "有效名称与空名称分支已验证；不代表所有来源文档重命名等其他控件已验收。"
+    },
+    {
+      "id": "P08",
+      "name": "归档／取消归档",
+      "contract": "L | 从活跃列表隐藏，可恢复 |",
+      "source_line": 145,
+      "status": "本地Qt合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 归档从活跃列表隐藏、取消归档保留原始项目和文档ID"
+      ],
+      "remaining": "不代表项目永久清理已实现；此控件只切换归档状态。"
+    },
+    {
+      "id": "P09",
+      "name": "移入回收区",
+      "contract": "L；确认项目名 | 有运行任务时先处理任务；不永久删除 |",
+      "source_line": 146,
+      "status": "部分验证",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 执行记录保护与回收恢复",
+        "tests/test_project_context.py: 全部未结束文字任务恢复",
+        "tests/test_image_workflow.py: 双表图片恢复",
+        "tests/test_task_runtime.py: 两个实际进程接手查询和下载、重复执行拒绝、恢复不继承所有权"
+      ],
+      "remaining": "本地及跨进程所有权已用实际进程和固定响应验证，没有调用真实供应商。真实供应商取消与远端状态仍未实测；全项目验收保持未完成。"
+    },
+    {
+      "id": "P10",
+      "name": "备份／恢复",
+      "contract": "L；选择文件 | 完整性校验后恢复到新目录，默认不覆盖 |",
+      "source_line": 147,
+      "status": "本地合同验证通过",
+      "evidence": [
+        "docs/evidence/project_ui_results.json: 界面备份落盘、新项目恢复不覆盖原项目、取消恢复",
+        "tests/test_local_workflow.py: 资产一致性备份恢复、损坏和路径逃逸拒绝"
+      ],
+      "remaining": "文件选择与确认使用固定测试输入；实际SQLite备份、归档文件写入和新目录恢复均执行。"
+    },
+    {
+      "id": "S01",
+      "name": "内容形式",
+      "contract": "小说／剧本／文案 | 切换只推荐规则，不自动改已有稿 |",
+      "source_line": 153,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S02",
+      "name": "题材与细分",
+      "contract": "搜索、多标签；主类型一个 | 只展示相关选项，可自定义 |",
+      "source_line": 154,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S03",
+      "name": "人群与用途",
+      "contract": "可选目标读者、观看人群、商业目的 | 未填允许创作，不虚构用户画像 |",
+      "source_line": 155,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S04",
+      "name": "字数／时长",
+      "contract": "明确单位和容差 | 时长仅用于估计，不伪装成音频实测 |",
+      "source_line": 156,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S05",
+      "name": "规则预览",
+      "contract": "L；展示将加载的规则名称、版本、优先级 | 可以查看全文和恢复默认 |",
+      "source_line": 157,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S06",
+      "name": "生成构思",
+      "contract": "M；至少有主题或创作要求 | 默认一个方案，保存为候选 |",
+      "source_line": 158,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S07",
+      "name": "生成大纲",
+      "contract": "M；使用已选构思及必要设定 | 不覆盖已确认大纲 |",
+      "source_line": 159,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S08",
+      "name": "新增章／场／卡片",
+      "contract": "L | 立即创建空节点，无需 AI |",
+      "source_line": 160,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S09",
+      "name": "拖动排序",
+      "contract": "L；目标树合法 | 保持节点 ID，记录顺序变更 |",
+      "source_line": 161,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S10",
+      "name": "锁定大纲节点",
+      "contract": "L | 后续 AI 不能修改；解锁需明确动作 |",
+      "source_line": 162,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S11",
+      "name": "局部重做",
+      "contract": "M；选中目标节点 | 仅生成该节点候选，提示后续依赖 |",
+      "source_line": 163,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "S12",
+      "name": "确认大纲",
+      "contract": "L；处理结构错误 | 新建确认版本，标记受影响摘要待更新 |",
+      "source_line": 164,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E01",
+      "name": "保存",
+      "contract": "L；Ctrl+S；同时支持短延迟自动保存 | 事务成功后显示时间 |",
+      "source_line": 170,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E02",
+      "name": "撤销／重做",
+      "contract": "L | 人工编辑与 AI 采纳分别作为可撤销操作 |",
+      "source_line": 171,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E03",
+      "name": "查找／替换",
+      "contract": "L；单段、当前文档或项目范围显式选择 | 全项目替换先预览；锁定段落跳过 |",
+      "source_line": 172,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E04",
+      "name": "选中改写",
+      "contract": "M；必须有选区或明确对象 | 返回修改建议，不直接覆盖 |",
+      "source_line": 173,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E05",
+      "name": "续写",
+      "contract": "M；光标位置明确 | 使用附近文本与故事状态，避免重复结尾 |",
+      "source_line": 174,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E06",
+      "name": "扩写／压缩",
+      "contract": "M；选区与长度目标 | 事件保持条件随请求发送 |",
+      "source_line": 175,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E07",
+      "name": "改对白",
+      "contract": "M；识别对白或人工选区 | 保留说话人绑定，锁定句不得修改 |",
+      "source_line": 176,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E08",
+      "name": "添加批注",
+      "contract": "L | 批注关联稳定段落 ID |",
+      "source_line": 177,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E09",
+      "name": "锁定文字",
+      "contract": "L；选区 | 保存原文与哈希；人工修改前提示解锁 |",
+      "source_line": 178,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E10",
+      "name": "提取设定",
+      "contract": "M；明确范围 | 提取结果先进入待确认区 |",
+      "source_line": 179,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E11",
+      "name": "审稿",
+      "contract": "M；选择维度和范围 | 问题列表必须带原文证据或明确缺失项 |",
+      "source_line": 180,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E12",
+      "name": "格式检查",
+      "contract": "L | 字段、结构、重复 ID、台词锁定等确定性检查 |",
+      "source_line": 181,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E13",
+      "name": "查看版本",
+      "contract": "L | 比较、命名、恢复为新版本 |",
+      "source_line": 182,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E14",
+      "name": "全文／选区导出",
+      "contract": "L | 显示格式与范围；导出草稿需提示 |",
+      "source_line": 183,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E15",
+      "name": "专注写作",
+      "contract": "L | 还原原分栏状态，不丢运行任务 |",
+      "source_line": 184,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E16",
+      "name": "接受／拒绝修改",
+      "contract": "L；检查基线版本和锁定约束 | 一条修改一次事务，可撤销 |",
+      "source_line": 185,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "E17",
+      "name": "全部采纳",
+      "contract": "L；仅当前已预览批次 | 有冲突、锁定错误或未完成输出时禁用 |",
+      "source_line": 186,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R01",
+      "name": "导入参考",
+      "contract": "L；文本、分镜 JSON、字幕或已有拆解 | 来源稿只读保存，不能被新稿覆盖 |",
+      "source_line": 194,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R02",
+      "name": "添加来源",
+      "contract": "L；链接、作者、时间、权利说明可录入 | 未知字段留空，不编造 |",
+      "source_line": 195,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R03",
+      "name": "拆解结构",
+      "contract": "M；明确可用材料 | 记录钩子、目标、冲突、变化、商业作用及证据 |",
+      "source_line": 196,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R04",
+      "name": "借结构／借手法／改编自有作品",
+      "contract": "L | 切换生成规则，不使用相似度百分比 |",
+      "source_line": 197,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R05",
+      "name": "保留项／改变项",
+      "contract": "L；逐项勾选或填写 | 冲突项在生成前提示 |",
+      "source_line": 198,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R06",
+      "name": "新方案",
+      "contract": "M；参考拆解和新主题 | 默认一个候选，可追加变体 |",
+      "source_line": 199,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R07",
+      "name": "扩写新稿",
+      "contract": "M；确认方案 | 新文档关联来源和方案版本 |",
+      "source_line": 200,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R08",
+      "name": "对照查看",
+      "contract": "L | 两栏独立滚动，可定位关联段落 |",
+      "source_line": 201,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "R09",
+      "name": "相似表达检查",
+      "contract": "L＋可选 M | 标记重复片段供审查，不出“保证不侵权”结论 |",
+      "source_line": 202,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A01",
+      "name": "选择来源稿",
+      "contract": "L；显示版本 | 来源变更时旧映射标记过期 |",
+      "source_line": 210,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A02",
+      "name": "选择目标形式",
+      "contract": "小说转剧本、口播转对话、长篇压缩等 | 展示目标结构要求 |",
+      "source_line": 211,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A03",
+      "name": "保留事件／锁定台词",
+      "contract": "L | 保存事件清单与逐句台词 ID |",
+      "source_line": 212,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A04",
+      "name": "建立改编方案",
+      "contract": "M | 先给结构和映射，不立即全文生成 |",
+      "source_line": 213,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A05",
+      "name": "分段生成",
+      "contract": "M；选择章节／场次 | 单段失败不重做成功段落 |",
+      "source_line": 214,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A06",
+      "name": "核对保留项",
+      "contract": "L＋可选 M | 字面锁定用程序；语义保留用带证据审查 |",
+      "source_line": 215,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "A07",
+      "name": "确认改编稿",
+      "contract": "L | 新版本可追溯来源，不覆盖原文 |",
+      "source_line": 216,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I01",
+      "name": "新建灵感",
+      "contract": "L | 保存便签，可送入项目 |",
+      "source_line": 222,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I02",
+      "name": "检索资料",
+      "contract": "W；选择允许的数据源 | 记录查询与来源；失败不伪造结果 |",
+      "source_line": 223,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I03",
+      "name": "导入热点数据",
+      "contract": "L；文件或授权来源 | 保存平台、指标口径、采集时间，缺失值不是零 |",
+      "source_line": 224,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I04",
+      "name": "收藏案例",
+      "contract": "L；用户提供或实际获取 | 保留来源和采集范围 |",
+      "source_line": 225,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I05",
+      "name": "送入项目",
+      "contract": "L；选择项目和用途 | 建立引用，不复制整套无关资料 |",
+      "source_line": 226,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "I06",
+      "name": "分析选题",
+      "contract": "M；输入可用证据 | 区分事实、推断、待验证项 |",
+      "source_line": 227,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D01",
+      "name": "新建人物／场景／产品／设定",
+      "contract": "L | 类型对应表单，可自定义字段 |",
+      "source_line": 228,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D02",
+      "name": "导入图片并识别",
+      "contract": "M；选视觉模型并确认发送 | 保存图片哈希与证据，低置信度字段待确认 |",
+      "source_line": 229,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D03",
+      "name": "确认事实",
+      "contract": "L；用户审核 | 从候选变为已确认，记录来源和版本 |",
+      "source_line": 230,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D04",
+      "name": "编辑规则",
+      "contract": "L | 创建覆盖版本，不改系统基线 |",
+      "source_line": 231,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D05",
+      "name": "启用／停用规则",
+      "contract": "L | 展示影响任务；不能关闭数据安全边界 |",
+      "source_line": 232,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D06",
+      "name": "规则试跑",
+      "contract": "M；选择样例和模型 | 输出另存，不污染正文与事实 |",
+      "source_line": 233,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "D07",
+      "name": "恢复默认",
+      "contract": "L；预览差异 | 保留旧版本，可撤销 |",
+      "source_line": 234,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C01",
+      "name": "发送",
+      "contract": "校验模型能力、预算和上下文后提交快照 |",
+      "source_line": 266,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C02",
+      "name": "停止",
+      "contract": "请求取消、终止本地等待；保留部分输出，不保证撤销账单 |",
+      "source_line": 267,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C03",
+      "name": "重新生成",
+      "contract": "新请求、新候选；不假装是免费操作 |",
+      "source_line": 268,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C04",
+      "name": "继续未完成内容",
+      "contract": "读取已有片段和目标，提示可能再次计费 |",
+      "source_line": 269,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C05",
+      "name": "引用到正文",
+      "contract": "选插入位置，形成修改建议 |",
+      "source_line": 270,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C06",
+      "name": "查看修改",
+      "contract": "打开差异视图，不直接覆盖 |",
+      "source_line": 271,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C07",
+      "name": "固定资料",
+      "contract": "仅当前项目或会话范围，范围必须可见 |",
+      "source_line": 272,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C08",
+      "name": "查看上下文",
+      "contract": "本地查看请求清单和可发送内容，凭据永不出现 |",
+      "source_line": 273,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C09",
+      "name": "查看用量",
+      "contract": "显示服务商原始 usage 与归一化统计摘要 |",
+      "source_line": 274,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "C10",
+      "name": "新会话",
+      "contract": "创建新对话，仍可按需读取项目资料 |",
+      "source_line": 275,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F01",
+      "name": "封面用途",
+      "contract": "项目封面／小说封面／剧本海报／视频封面 | L；决定模板，不固定艺术风格 |",
+      "source_line": 670,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F02",
+      "name": "比例",
+      "contract": "小说建议2:3，剧本海报可2:3，视频可16:9、9:16、4:3、1:1 | L；这些是内部预设，不宣称平台通用硬要求 |",
+      "source_line": 671,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F03",
+      "name": "输出尺寸",
+      "contract": "展示本地导出尺寸与模型原生尺寸 | 模型不支持时不能静默拉伸 |",
+      "source_line": 672,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F04",
+      "name": "主标题",
+      "contract": "默认项目名，允许独立封面标题 | L；修改不重做底图 |",
+      "source_line": 673,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F05",
+      "name": "副标题／作者",
+      "contract": "默认空白 | L；不自动添作者名、奖项或营销词 |",
+      "source_line": 674,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F06",
+      "name": "内容依据",
+      "contract": "默认已确认简介，可手动选章场／人物 | L；不自动发送整部小说 |",
+      "source_line": 675,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F07",
+      "name": "视觉方向",
+      "contract": "由题材推荐，可自由输入与修改 | L；与应用主题完全分开 |",
+      "source_line": 676,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F08",
+      "name": "避免剧透",
+      "contract": "默认开启 | 限制画面披露程度，不影响保存原文 |",
+      "source_line": 677,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F09",
+      "name": "参考图",
+      "contract": "默认无，按通道能力限制数量 | 外部发送前显示；保留用户素材副本 |",
+      "source_line": 678,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F10",
+      "name": "图片连接",
+      "contract": "默认用户设定，未配置时显示配置入口 | 不跟随文字模型自动切换 |",
+      "source_line": 679,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F11",
+      "name": "图片模型",
+      "contract": "只列支持当前任务的模型 | 未验证可选但明确标记 |",
+      "source_line": 680,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F12",
+      "name": "生成数量",
+      "contract": "默认1，扩展数量必须显示预估消耗 | 不自动生成四张 |",
+      "source_line": 681,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F13",
+      "name": "生成提示词",
+      "contract": "从确认材料产生可编辑方案 | M；用户已有提示词可跳过 |",
+      "source_line": 682,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F14",
+      "name": "查看完整请求",
+      "contract": "展示画面提示、参考、尺寸和连接 | L；不展示 KEY 或敏感签名链接 |",
+      "source_line": 683,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F15",
+      "name": "生成底图",
+      "contract": "发起一个持久化图片任务 | M/图片费用；提交后防重复 |",
+      "source_line": 684,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F16",
+      "name": "停止／取消",
+      "contract": "依通道支持请求远端取消 | 不承诺退费；保留现有封面 |",
+      "source_line": 685,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F17",
+      "name": "查询状态",
+      "contract": "有服务端任务号时查询，不重新生成 | 记录查询行为，不当成新出图 |",
+      "source_line": 686,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F18",
+      "name": "重新生成",
+      "contract": "明确发新任务，生成新版本 | 显示可能再次计费 |",
+      "source_line": 687,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F19",
+      "name": "修改这张",
+      "contract": "选择原图与改动，按能力走图生图或编辑 | 无编辑能力时禁用并解释 |",
+      "source_line": 688,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F20",
+      "name": "导入图片",
+      "contract": "本地PNG/JPEG/WebP等已支持格式 | 校验实际解码，不只看后缀 |",
+      "source_line": 689,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F21",
+      "name": "裁切／焦点",
+      "contract": "用户指定主体保留位置 | L；禁止拉伸人物或产品比例 |",
+      "source_line": 690,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F22",
+      "name": "标题排版",
+      "contract": "字体、字重、大小、换行、位置、颜色、描边、阴影 | L；即时预览，保留可编辑图层 |",
+      "source_line": 691,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F23",
+      "name": "预览缩略图",
+      "contract": "看小尺寸阅读与项目卡片效果 | L；安全区不烧录到成品 |",
+      "source_line": 692,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F24",
+      "name": "设为封面",
+      "contract": "用户选择一个完成版本 | L；原版本保留，可撤销 |",
+      "source_line": 693,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F25",
+      "name": "导出封面",
+      "contract": "选PNG/JPEG、尺寸和位置 | L；先确认覆盖同名文件 |",
+      "source_line": 694,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F26",
+      "name": "删除候选",
+      "contract": "回收区保留恢复入口 | 使用中的封面需先解除引用 |",
+      "source_line": 695,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F27",
+      "name": "恢复默认排版",
+      "contract": "展示差异并保存撤销点 | 不丢底图 |",
+      "source_line": 696,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "F28",
+      "name": "保存提示词模板",
+      "contract": "作为项目模板或通用模板 | 两种作用范围必须可见 |",
+      "source_line": 697,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K01",
+      "name": "新增文字连接",
+      "contract": "DeepSeek／火山／千问为主要预设，自定义与Kimi为扩展 |",
+      "source_line": 854,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K02",
+      "name": "新增图片连接",
+      "contract": "复用 TT 通用图片适配；文字KEY不自动认定有图片权限 |",
+      "source_line": 855,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K03",
+      "name": "保存连接",
+      "contract": "凭据存入安全存储，配置仅留引用 |",
+      "source_line": 856,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K04",
+      "name": "检查认证",
+      "contract": "无生成的读操作；不能标成“生图已通过” |",
+      "source_line": 857,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K05",
+      "name": "最小生成测试",
+      "contract": "显示通道和可能收费，用户确认测试后执行 |",
+      "source_line": 858,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K06",
+      "name": "读取模型列表",
+      "contract": "支持时读取；失败允许手动录入 |",
+      "source_line": 859,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K07",
+      "name": "手动模型",
+      "contract": "输入实际ID并选择声明能力，状态未验证 |",
+      "source_line": 860,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K08",
+      "name": "设置默认文字模型",
+      "contract": "影响新任务，运行中任务不变 |",
+      "source_line": 861,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K09",
+      "name": "设置默认图片模型",
+      "contract": "独立于文字模型，可留空 |",
+      "source_line": 862,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K10",
+      "name": "检测 Codex",
+      "contract": "查指定路径或系统可执行路径，返回版本 |",
+      "source_line": 863,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K11",
+      "name": "选择 CLI 文件",
+      "contract": "文件选择器，路径可含中文空格 |",
+      "source_line": 864,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K12",
+      "name": "检查登录状态",
+      "contract": "使用受支持状态机制，不展示认证文件 |",
+      "source_line": 865,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K13",
+      "name": "测试文字能力",
+      "contract": "受预算控制的小任务，回显真实产物 |",
+      "source_line": 866,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K14",
+      "name": "测试图片能力",
+      "contract": "单独生成测试图并解码，不能复用文字测试结论 |",
+      "source_line": 867,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K15",
+      "name": "切换主题",
+      "contract": "三主题即时预览，保存偏好 |",
+      "source_line": 868,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K16",
+      "name": "字号与布局",
+      "contract": "正文、UI分别调整；提供恢复默认 |",
+      "source_line": 869,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K17",
+      "name": "预算与轮数",
+      "contract": "显示作用范围；金额未知时不能假装硬控人民币 |",
+      "source_line": 870,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K18",
+      "name": "自动备份",
+      "contract": "设置数量和触发点；恢复前验证 |",
+      "source_line": 871,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K19",
+      "name": "清理缓存",
+      "contract": "先列可重建内容，不删正文、素材或已采用封面 |",
+      "source_line": 872,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K20",
+      "name": "导出诊断",
+      "contract": "默认脱敏，用户预览后保存；不含 KEY 和作品全文 |",
+      "source_line": 873,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K21",
+      "name": "停用／删除连接",
+      "contract": "停用可恢复；删除凭据引用需确认，不删历史账本 |",
+      "source_line": 874,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "K22",
+      "name": "查看模型能力",
+      "contract": "列已实测／文档声明／未知，显示核实日期 |",
+      "source_line": 875,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B01",
+      "name": "导入案例",
+      "contract": "CSV/JSON字段映射预览，校验后进候选区 |",
+      "source_line": 1152,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B02",
+      "name": "新建案例",
+      "contract": "手工填写最低身份字段，未知留空 |",
+      "source_line": 1153,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B03",
+      "name": "搜索公开资料",
+      "contract": "明确来源与作品，记录证据，不自动补结论 |",
+      "source_line": 1154,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B04",
+      "name": "按年份采集",
+      "contract": "用户选来源与年份，显示访问限制和任务进度 |",
+      "source_line": 1155,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B05",
+      "name": "暂停／恢复采集",
+      "contract": "保留已处理记录，恢复不重复导入 |",
+      "source_line": 1156,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B06",
+      "name": "核实条目",
+      "contract": "逐字段标记来源及核实状态 |",
+      "source_line": 1157,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B07",
+      "name": "查看覆盖",
+      "contract": "按来源、年份、地域、类型显示缺口 |",
+      "source_line": 1158,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B08",
+      "name": "添加原作",
+      "contract": "录入原作ID、作者和类型，不只有小说 |",
+      "source_line": 1159,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B09",
+      "name": "建立改编关系",
+      "contract": "选择关系类型与证据，方向明确 |",
+      "source_line": 1160,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B10",
+      "name": "查看同原作版本",
+      "contract": "展示重拍、不同季、衍生版本，不混合指标 |",
+      "source_line": 1161,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B11",
+      "name": "加入比较",
+      "contract": "默认2–4部，可调整；不自动发全文 |",
+      "source_line": 1162,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B12",
+      "name": "拆解结构",
+      "contract": "输入用户合法资料或已有研究摘要，输出带证据分析 |",
+      "source_line": 1163,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B13",
+      "name": "提炼创作方法",
+      "contract": "从已选分析生成候选规则，不能自动发布 |",
+      "source_line": 1164,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B14",
+      "name": "审核并加入规则库",
+      "contract": "指定适用与不适用条件、示例和版本 |",
+      "source_line": 1165,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B15",
+      "name": "用于当前创作",
+      "contract": "只加入所选方法和必要案例摘要 |",
+      "source_line": 1166,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B16",
+      "name": "更新评分／票房",
+      "contract": "新增时间快照，不覆盖历史数值 |",
+      "source_line": 1167,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B17",
+      "name": "合并重复记录",
+      "contract": "人工预览身份、来源和指标冲突，可撤销 |",
+      "source_line": 1168,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B18",
+      "name": "收藏／标记待读",
+      "contract": "本地状态，不消耗模型 |",
+      "source_line": 1169,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B19",
+      "name": "导出案例",
+      "contract": "默认事实、来源和原创研究笔记，不含整部受版权保护内容 |",
+      "source_line": 1170,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "B20",
+      "name": "移入回收区",
+      "contract": "不删除其他项目已引用的快照 |",
+      "source_line": 1171,
+      "status": "待逐项核验",
+      "evidence": []
+    }
+  ],
+  "gates": [
+    {
+      "id": "V01",
+      "name": "八入口打开同一项目",
+      "contract": "数据一致，不重复建一套人物和正文 |",
+      "source_line": 527,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V02",
+      "name": "1024宽和4K高缩放",
+      "contract": "无关键按钮遮挡；可折叠；文字可读 |",
+      "source_line": 528,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V03",
+      "name": "三主题全部控件状态",
+      "contract": "无暗底黑字、浅底白字、不可见焦点 |",
+      "source_line": 529,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V04",
+      "name": "中文输入法组合输入",
+      "contract": "不误发送、不丢字、不被自动保存打断 |",
+      "source_line": 530,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V05",
+      "name": "手写和本地操作",
+      "contract": "网络请求数为零 |",
+      "source_line": 531,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V06",
+      "name": "修改一句锁定台词",
+      "contract": "程序阻止写入并显示差异 |",
+      "source_line": 532,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V07",
+      "name": "模型生成期间用户改正文",
+      "contract": "旧提案不能无提示覆盖新版 |",
+      "source_line": 533,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V08",
+      "name": "取消、超时、网络断开",
+      "contract": "保留原稿和部分候选，无无限重试 |",
+      "source_line": 534,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V09",
+      "name": "每个服务商能力测试",
+      "contract": "文本、工具、流式、usage分别记录，不用一次成功代表全部 |",
+      "source_line": 535,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V10",
+      "name": "K3 专属参数",
+      "contract": "不发送不支持的采样开关；预算档映射可见 |",
+      "source_line": 536,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V11",
+      "name": "CLI 中文路径与空格路径",
+      "contract": "正确传参、取消和解析，无认证信息输出 |",
+      "source_line": 537,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V12",
+      "name": "参考素材含恶意指令",
+      "contract": "不触发外部发送、任意路径访问或规则覆盖 |",
+      "source_line": 538,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V13",
+      "name": "人物第8章受伤",
+      "contract": "第2章不会错误加载未来状态 |",
+      "source_line": 539,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V14",
+      "name": "规则或事实更新",
+      "contract": "旧缓存不会作为有效新结果自动复用 |",
+      "source_line": 540,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V15",
+      "name": "再生成一个版本",
+      "contract": "产生新候选，不返回旧缓存冒充新稿 |",
+      "source_line": 541,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V16",
+      "name": "缓存费用计算",
+      "contract": "样例账单逐项核对，无重复计数，未知值不记零 |",
+      "source_line": 542,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V17",
+      "name": "备份与崩溃恢复",
+      "contract": "可恢复最近已落盘版本；显示未完成任务 |",
+      "source_line": 543,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V18",
+      "name": "仿写已有分镜",
+      "contract": "不重复调用视觉识别，保留来源和拆解依据 |",
+      "source_line": 544,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V19",
+      "name": "全文审稿",
+      "contract": "问题可定位原文；不编造证据、不自行改稿 |",
+      "source_line": 545,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V20",
+      "name": "TT 导出",
+      "contract": "真实版本导入成功且台词与人物绑定正确，未通过前不标已支持 |",
+      "source_line": 546,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V21",
+      "name": "没有图片 KEY 新建项目",
+      "contract": "显示本地标题封面，可正常写作 |",
+      "source_line": 959,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V22",
+      "name": "手动导入封面",
+      "contract": "可裁切排版并保存；删外部原图后项目仍可用 |",
+      "source_line": 960,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V23",
+      "name": "通用接口生成一图",
+      "contract": "请求、任务、产物一致，图片可解码，记录实际尺寸 |",
+      "source_line": 961,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V24",
+      "name": "Codex CLI 仅返回文字",
+      "contract": "不判图片成功，不拿旧PNG替代 |",
+      "source_line": 962,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V25",
+      "name": "Codex CLI 真正出图",
+      "contract": "按任务定位产物并登记，重启后仍可打开 |",
+      "source_line": 963,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V26",
+      "name": "生图提交超时",
+      "contract": "标记结果待确认，不自动再提交扣费 |",
+      "source_line": 964,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V27",
+      "name": "已生成但下载失败",
+      "contract": "可以重新下载，不自动重新生成 |",
+      "source_line": 965,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V28",
+      "name": "改封面标题",
+      "contract": "本地完成，图片模型请求计数不增加 |",
+      "source_line": 966,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V29",
+      "name": "改背景内容",
+      "contract": "新候选保留原图，未采纳不切当前封面 |",
+      "source_line": 967,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V30",
+      "name": "标题含长中文与英文",
+      "contract": "换行可控，无缺字、截断或越界 |",
+      "source_line": 968,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V31",
+      "name": "项目封面缩略图",
+      "contract": "不卡主线程，主标题和主体可辨认 |",
+      "source_line": 969,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V32",
+      "name": "三主题切换",
+      "contract": "底图和成品不变，模型选择不丢失 |",
+      "source_line": 970,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V33",
+      "name": "比例变化",
+      "contract": "重新构图／裁切可控，不拉伸产品或人脸 |",
+      "source_line": 971,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V34",
+      "name": "图生图能力不支持",
+      "contract": "控件禁用并说明，不偷偷改成纯文生图 |",
+      "source_line": 972,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V35",
+      "name": "多图部分成功",
+      "contract": "成功项保存，缺失项不导致全批重做 |",
+      "source_line": 973,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V36",
+      "name": "故事资料更新",
+      "contract": "旧封面可保留但标依据变化，不自动扣费重做 |",
+      "source_line": 974,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V37",
+      "name": "同时开两个项目",
+      "contract": "封面、AI回复、任务回调不会串项目 |",
+      "source_line": 975,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V38",
+      "name": "退出时还有任务",
+      "contract": "明确说明后台状态，恢复后可查询和继续 |",
+      "source_line": 976,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V39",
+      "name": "KEY脱敏检查",
+      "contract": "日志、错误、导出、截图测试数据无真实凭据 |",
+      "source_line": 977,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V40",
+      "name": "旧授权隔离",
+      "contract": "无旧激活依赖，第三方许可完整保留 |",
+      "source_line": 978,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V41",
+      "name": "规则新增与回退",
+      "contract": "不改代码可加载有效规则，旧任务快照不变 |",
+      "source_line": 979,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V42",
+      "name": "新软件源码启动",
+      "contract": "在明确环境中从源码运行，异常不闪退丢日志 |",
+      "source_line": 980,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V43",
+      "name": "导入六条种子",
+      "contract": "身份、来源、改编方向和未知值正确 |",
+      "source_line": 1293,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V44",
+      "name": "显示散文改编",
+      "contract": "我的阿勒泰显示散文集，不自动改成小说 |",
+      "source_line": 1294,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V45",
+      "name": "多原作改编",
+      "contract": "Wolf Hall 可关联两部原作，不覆盖其中之一 |",
+      "source_line": 1295,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V46",
+      "name": "高分筛选",
+      "contract": "同时支持评分人数与采集时间，未知评分不伪造 |",
+      "source_line": 1296,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V47",
+      "name": "票房比较",
+      "contract": "地区、币种、时间口径可见，不混合电视热度 |",
+      "source_line": 1297,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V48",
+      "name": "奖项状态",
+      "contract": "提名、入围、推荐与获奖不混淆 |",
+      "source_line": 1298,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V49",
+      "name": "同名与翻拍",
+      "contract": "按版本定位，不能只凭片名自动合并 |",
+      "source_line": 1299,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V50",
+      "name": "引用案例写作",
+      "contract": "只发送所选方法和必要摘要，不默认整库上下文 |",
+      "source_line": 1300,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V51",
+      "name": "提炼规则",
+      "contract": "进入候选待审，标适用条件和证据等级 |",
+      "source_line": 1301,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V52",
+      "name": "更新评分与规则",
+      "contract": "保留历史快照，不悄悄改已完成项目引用 |",
+      "source_line": 1302,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V53",
+      "name": "全量覆盖状态",
+      "contract": "清楚显示哪些年份与来源未核查 |",
+      "source_line": 1303,
+      "status": "待逐项核验",
+      "evidence": []
+    },
+    {
+      "id": "V54",
+      "name": "无授权来源受限",
+      "contract": "停止该来源并报告，不绕过限制或编造数据 |",
+      "source_line": 1304,
+      "status": "待逐项核验",
+      "evidence": []
+    }
+  ],
+  "completion_proven": false,
+  "note": "这里只提取合同。按钮存在、测试绿色或关键词匹配不能证明对应完整要求已完成。"
+}

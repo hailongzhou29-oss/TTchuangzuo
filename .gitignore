@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+.venv/
+user_data/
+logs/
+*.sqlite*
+local.runtime.json
+
+# Credentials and local authentication
+.env
+.env.*
+auth.json
+credentials*.dat
+connections.json
+image_connections.json
+secrets*.json
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Local environments and generated artifacts
+venv/
+env/
+node_modules/
+build/
+dist/
+release/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.ttbackup
+*.exe
+*.msi
+*.zip
+
+# Runtime evidence can contain local paths, live request IDs, or user content
+/docs/evidence/*
+!/docs/evidence/.gitkeep

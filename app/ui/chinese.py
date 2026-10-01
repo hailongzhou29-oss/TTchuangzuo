@@ -1,0 +1,9 @@
+"""Readable source data; wire field names stay outside the normal interface."""
+NAMES={'title':'作品名称','release_year':'年份','screen_format':'作品形式','country':'国家地区','genres':'题材','adaptation_sources':'改编来源','award_records':'奖项','rating_snapshots':'评分','box_office_snapshots':'票房','evidence':'来源证据','notes':'说明','author':'作者','source_type':'原作类型','relation_type':'改编关系','organization':'机构','category':'类别','year':'年份','status':'状态','source':'来源','url':'来源链接','supports':'支持的字段','platform':'平台','score':'评分','scale':'满分','count':'人数','collected_at':'采集日期','currency':'币种','region':'市场','amount':'金额','period':'统计期间','as_of':'统计日期','subject_type':'授奖对象','verified_fields':'已核实字段','analysis_status':'分析状态','record_status':'记录状态','text':'内容','name':'姓名','description':'描述'}
+VALUES={'film':'电影','tv_series':'电视剧','series':'剧集','television_series':'电视剧','micro_drama':'短剧','short_film':'短片','animation':'动画','documentary':'纪录片','novel':'小说','short_story':'短篇小说','online_novel':'网络小说','nonfiction':'非虚构','comic':'漫画','stage_play':'戏剧','original_screenplay':'原创剧本','other':'其他','unknown':'未核实','adapted_from':'改编自','loosely_adapted':'松散改编','inspired_by':'受其启发','remake':'翻拍','sequel':'续作','multi_source':'多个来源','screen_to_book':'影视改编成书','won':'获奖','nominated':'提名','shortlisted':'入围','recommended':'推荐','source_work':'原作','screen_work':'影视作品','season':'季','episode':'集','research_candidate':'待核实资料','not_analyzed':'尚未分析','not_evaluated':'尚未评估','unverified':'未核实'}
+def readable(value):
+    if value is None or value==[] or value=='': return '未核实'
+    if isinstance(value,list): return '\n'.join('• '+readable(v) for v in value)
+    if isinstance(value,dict): return '\n'.join(NAMES[k]+'：'+readable(v) for k,v in value.items() if k in NAMES)
+    if isinstance(value,bool): return '是' if value else '否'
+    return VALUES.get(str(value),str(value))

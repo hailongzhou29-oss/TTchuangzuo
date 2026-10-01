@@ -14,7 +14,7 @@ def schema(name, description, properties, required=()):
 
 TOOL_SCHEMAS = [
     schema('search_project', '只在当前项目允许的剧情范围检索文字，返回来源 ID。', {'query': {'type': 'string'}}, ['query']),
-    schema('read_document', '读取允许范围的文档版本及段落，不接受文件路径。', {'document_id': {'type': 'string'}}, ['document_id']),
+    schema('read_document', '分页读取允许范围的文档版本，has_more为真时用next_cursor继续。', {'document_id': {'type': 'string'},'block_start':{'type':'integer'},'block_limit':{'type':'integer'}}, ['document_id']),
     schema('read_facts', '只读取当前剧情位置的已确认事实，争议项单独列出。', {'entity_id': {'type': 'string'}}),
     schema('read_rules', '读取当前任务已加载的规则快照。', {'rule_id': {'type': 'string'}}, ['rule_id']),
     schema('propose_patch', '只生成原文当前范围的修改提案，不写入正文。', {
@@ -84,19 +84,27 @@ class ProjectTools:
             document.update(text=row['text'], blocks=json.loads(row['blocks']), head=revision)
         return document
 
-    def read_document(self, document_id):
+    def read_document(self, document_id, block_start=0, block_limit=30):
         document = self._document(document_id)
+        if not 0 <= block_start <= len(document['blocks']) or not 1 <= block_limit <= 100:
+            raise ValueError('读取分页范围无效')
         blocks = []
         offset = 0
-        for block in document['blocks']:
-            if len(blocks) == 30:
+        total = 0
+        for index, block in enumerate(document['blocks']):
+            if index < block_start:
+                offset += len(block['text']) + 1
+                continue
+            if len(blocks) == block_limit or blocks and total + len(block['text']) > 12000:
                 break
             blocks.append(dict(block, start=offset, end=offset + len(block['text']), hash=digest(block['text'])))
+            total += len(block['text'])
             offset += len(block['text']) + 1
         if sum(len(b['text']) for b in blocks) > 12000:
             raise ValueError('资料超过单次工具读取上限，请缩小文档或使用选区')
+        cursor=block_start+len(blocks)
         return dict(document_id=document_id, revision=document['head'], title=document['title'], blocks=blocks,
-                    truncated=len(document['blocks']) > len(blocks))
+                    truncated=cursor < len(document['blocks']),has_more=cursor < len(document['blocks']),next_cursor=cursor,total_blocks=len(document['blocks']))
 
     def search_project(self, query):
         if not query.strip() or len(query) > 128:

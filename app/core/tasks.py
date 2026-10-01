@@ -434,7 +434,11 @@ class TaskService:
                 # Review evidence must match frozen source, even if editing continued.
                 frozen = json.loads(snapshot['messages'][1]['content'].split('\n', 1)[1])['target_text']
                 context = json.loads(snapshot['messages'][1]['content'].split('\n', 1)[1])
-                payload['candidate'] = parse_candidate(result.text, snapshot['stage'], frozen, context)
+                if snapshot.get('v2_task'):
+                    from app.core.creation_flow import parse_output
+                    payload['candidate'] = parse_output(result.text, snapshot['v2_task'], snapshot['constraints'])
+                else:
+                    payload['candidate'] = parse_candidate(result.text, snapshot['stage'], frozen, context)
                 if snapshot['stage'] == 'fact_extract':
                     # Validate all facts first; storing candidates does not confirm them.
                     fact_ids = []

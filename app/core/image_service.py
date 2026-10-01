@@ -120,7 +120,7 @@ class ImageService:
                 raise ValueError('画面提示包含该连接真实凭据，未创建请求')
         task_id = new_id()
         rule_service = ProjectRules(self.store, self.resources)
-        rules = [r for r in rule_service.rules() if r['enabled'] and r['rule_id'] in {'G10', {'小说': 'G11', '剧本': 'G12', '文案': 'G13'}[self.store.metadata()['kind']], *({'G14'} if operation == 'edit' else set())}]
+        rules = [r for r in rule_service.rules() if r['enabled'] and r['rule_id'] in {'G10', {'小说': 'G11', '剧本': 'G12', '文案': 'G13', '仿写':'G12'}[self.store.metadata()['kind']], *({'G14'} if operation == 'edit' else set())}]
         snapshot = dict(schema_version=1, task_id=task_id, request_id=task_id, project_id=self.store.metadata()['id'],
             stage='image_generate', cover_id=self.store.setting('active_cover'), cover_revision_hash=digest(json.dumps(cover_spec, sort_keys=True, ensure_ascii=False)),
             connection_id=connection.id, model_id=connection.model, model_selection=connection.public(), operation=operation,

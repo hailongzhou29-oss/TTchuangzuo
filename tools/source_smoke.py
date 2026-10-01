@@ -9,7 +9,7 @@ sys.path.insert(0, str(ROOT))
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QApplication
 from app.main import main
-from app.ui.window import MainWindow
+from app.ui.v2_window import MainWindow
 
 show = MainWindow.show
 def timed_show(window):

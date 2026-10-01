@@ -75,6 +75,38 @@ class Workspace:
         store.check()
         return store
 
+    def migrate_to(self, destination):
+        """Copy consistent project data, then publish; retain all source directories."""
+        mapping={}
+        for row in self.projects('all'):
+            source=self.open(Path(row['root'])); identity=source.metadata()['id']; target=(destination.projects_root/identity).resolve()
+            if target.parent!=destination.projects_root.resolve(): raise ValueError('迁移目标超出项目目录')
+            if target.exists(): raise ValueError('新目录已有同一项目，请选择空目录，原项目保留')
+            staging=(destination.root/('.migration_'+new_id())).resolve()
+            if staging.parent!=destination.root.resolve(): raise ValueError('迁移临时目录无效')
+            staging.mkdir()
+            for name in ('assets','exports','backups'): (staging/name).mkdir()
+            source.backup_database(staging/'project.sqlite')
+            with source.connection() as con: assets=con.execute('SELECT relative,hash FROM assets').fetchall()
+            for asset in assets:
+                if not asset['relative'].startswith('assets/'): raise ValueError('素材引用不在项目素材目录')
+                data=inside(source.root,asset['relative']).read_bytes()
+                if digest(data)!=asset['hash']: raise ValueError('素材校验失败，原项目保留')
+                atomic_write(inside(staging,asset['relative']),data)
+            exports=(source.root/'exports').resolve()
+            if exports.is_dir():
+                for path in exports.rglob('*'):
+                    if path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(exports):
+                        atomic_write(inside(staging,'exports/'+path.relative_to(exports).as_posix()),path.read_bytes())
+            ProjectStore(staging).check()
+            # Both resolved directories are within the explicitly chosen destination.
+            os.replace(staging,target)
+            mapping[os.path.normcase(str(source.root.resolve()))]=target
+        library=self.root/'case_library.sqlite'
+        if library.exists() and not (destination.root/'case_library.sqlite').exists():
+            with closing(sqlite3.connect(library)) as source, closing(sqlite3.connect(destination.root/'case_library.sqlite')) as output: source.backup(output)
+        return mapping
+
     def backup(self, store: ProjectStore, destination: Path, *, include_assets=True):
         """Only DB + registered local assets; never settings, credentials or logs."""
         with tempfile.TemporaryDirectory(prefix='tt-create-backup-') as work:

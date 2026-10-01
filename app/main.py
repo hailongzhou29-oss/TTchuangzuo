@@ -9,7 +9,7 @@ from pathlib import Path
 from PySide6.QtWidgets import QApplication, QMessageBox
 
 from app.core.services import Workspace
-from app.ui.window import APPLICATION_NAME, MainWindow
+from app.ui.v2_window import APPLICATION_NAME, MainWindow
 
 ROOT = Path(__file__).resolve().parents[1]
 

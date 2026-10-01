@@ -65,11 +65,11 @@ class HttpImageProvider:
         if snapshot['operation'] == 'edit':
             data, boundary = self.multipart(fields, references or [], mask)
             headers['Content-Type'] = 'multipart/form-data; boundary=' + boundary
-            suffix = '/images/edits'
+            suffix = connection.edit_path
         else:
             data = json.dumps(fields, ensure_ascii=False).encode('utf-8')
             headers['Content-Type'] = 'application/json'
-            suffix = '/images/generations'
+            suffix = connection.generate_path
         try:
             value = self._request(Request(connection.base_url.rstrip('/') + suffix, data=data, headers=headers, method='POST'), connection, cancel)
             result = self.parse(sanitize_metadata(value, secret), connection.model)

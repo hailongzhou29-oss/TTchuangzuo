@@ -1,8 +1,11 @@
 ﻿param([string]$PythonPath, [switch]$CheckOnly)
 $ErrorActionPreference = 'Stop'
+$env:PYTHONIOENCODING = 'utf-8'
+[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 $projectRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $projectRoot
 try {
+    Write-Host '正在检查 TT创作助手 运行环境…'
     if (-not $PythonPath) {
         $configPath = Join-Path $projectRoot 'local.runtime.json'
         if (Test-Path -LiteralPath $configPath) {
@@ -20,9 +23,10 @@ try {
     if (-not $PythonPath -or -not (Test-Path -LiteralPath $PythonPath)) {
         throw '未找到 Python。请用 -PythonPath 指定已有 Python 3.12+，或在 local.runtime.json 配置 python 路径。'
     }
-    & $PythonPath -c 'import sys, PySide6; assert sys.version_info >= (3,12), "需要 Python 3.12+"; print("Python",sys.version.split()[0],"PySide6",PySide6.__version__)'
+    & $PythonPath (Join-Path $PSScriptRoot 'check_runtime.py')
     if ($LASTEXITCODE -ne 0) { throw 'Python / PySide6 检查失败。请在所选环境运行 python -m pip install -r requirements.txt；启动器不会自动安装。' }
     if ($CheckOnly) { exit 0 }
+    try { $Host.UI.RawUI.WindowTitle = 'TT创作助手 · 开发版' } catch { }
     & $PythonPath -m app.main
     exit $LASTEXITCODE
 } catch {

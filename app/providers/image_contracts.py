@@ -28,6 +28,8 @@ class ImageConnection:
     capability_status: str = '手动声明，未实测'
     verification: dict = field(default_factory=dict)
     pricing: dict = field(default_factory=dict)
+    generate_path: str = '/images/generations'
+    edit_path: str = '/images/edits'
 
     def validate(self, require_model=True):
         if self.pricing:
@@ -49,6 +51,9 @@ class ImageConnection:
         if self.poll_path and (not self.poll_path.startswith('/') or self.poll_path.startswith('//') or
                                '{job_id}' not in self.poll_path or '?' in self.poll_path or '..' in self.poll_path):
             raise ValueError('查询路径须为含 {job_id} 的相对接口路径')
+        for path in (self.generate_path,self.edit_path):
+            if not path.startswith('/') or path.startswith('//') or any(ch in path for ch in ('?','#','\\','..')) or urlparse(path).netloc:
+                raise ValueError('生成与编辑路径须为不含凭据的相对接口路径')
         if any(not re.fullmatch(r'[a-zA-Z0-9.-]+', host) for host in self.asset_hosts):
             raise ValueError('资产来源声明只填写域名，不填写 URL 或凭据')
         if self.supports_mask and not self.supports_edit:

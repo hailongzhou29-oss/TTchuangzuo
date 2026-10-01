@@ -84,7 +84,7 @@ class ProjectStore:
 
     @classmethod
     def create(cls, root: Path, name: str, kind: str):
-        if not name.strip() or kind not in {'小说', '剧本', '文案'}:
+        if not name.strip() or kind not in {'小说', '剧本', '文案', '仿写'}:
             raise ValueError('请填写项目名称并选择作品类型')
         root.mkdir(parents=True, exist_ok=False)
         for folder in ('assets', 'exports', 'backups'):
@@ -251,7 +251,7 @@ class ProjectStore:
                 prior = con.execute('SELECT stage,payload FROM document_payloads WHERE revision_id=?', (base,)).fetchone()
                 if _structured:
                     payload = _structured
-                elif prior:
+                elif prior and not self.setting('v2_document:'+did,False):
                     from app.core.writing import WritingService
                     service = WritingService(self)
                     old = dict(stage=prior['stage'], data=json.loads(prior['payload']))

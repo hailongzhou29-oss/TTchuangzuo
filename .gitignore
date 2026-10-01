@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 .venv/
 user_data/
+/data/
 logs/
 *.sqlite*
 local.runtime.json

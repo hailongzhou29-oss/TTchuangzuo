@@ -84,6 +84,12 @@ class TextTaskTests(unittest.TestCase):
         self.assertIsNone(result.usage['actual_cost'])
         self.assertEqual(len(opener.requests), 1)
 
+    def test_deepseek_summary_can_explicitly_disable_default_thinking(self):
+        opener=FakeOpener(sse()); connection=replace(self.connection,model='deepseek-flash')
+        result=HttpTextProvider(opener).generate(connection,'secret',[],CancelToken(),thinking=False)
+        self.assertEqual(result.status,'completed'); self.assertEqual(json.loads(opener.requests[0].data)['thinking'],{'type':'disabled'})
+        with self.assertRaises(ValueError): HttpTextProvider(opener).generate(self.connection,'secret',[],CancelToken(),thinking=False)
+
     def test_nonstream_json_and_missing_usage(self):
         body = json.dumps(dict(id='n', model='actual', choices=[dict(message=dict(content='正文'), finish_reason='stop')])).encode()
         result = HttpTextProvider(FakeOpener(body)).generate(replace(self.connection, stream=False), 'secret', [], CancelToken())

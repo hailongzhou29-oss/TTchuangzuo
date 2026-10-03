@@ -35,7 +35,7 @@ class ImageConnection:
         if self.pricing:
             from app.core.budget import validate_price
             validate_price(self.pricing,True)
-        if self.provider not in {'image_http', 'image_codex'} or not self.id or not self.name.strip() or (require_model and not self.model.strip()):
+        if self.provider not in {'image_http', 'image_codex'} or not self.id or not self.name.strip() or (require_model and self.provider != 'image_codex' and not self.model.strip()):
             raise ValueError('请填写独立图片连接名称及实际模型 ID')
         if not 10 <= self.timeout <= 1800 or not 1 <= self.max_count <= 8:
             raise ValueError('图片超时或数量声明无效')

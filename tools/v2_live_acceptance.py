@@ -18,14 +18,22 @@ from dataclasses import replace
 
 class LiveConnections(ConnectionStore):
     def all(self):
-        return [replace(c,max_output=8192,timeout=300,context_limit=max(c.context_limit,65536)) if c.provider=='deepseek' and c.max_output==128 else c for c in super().all()]
+        return super().all()
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--image',action='store_true'); parser.add_argument('--resume',action='store_true'); args=parser.parse_args()
-    settings=Path(os.environ['LOCALAPPDATA'])/'TTChuangzuo'
-    evidence=ROOT/'docs'/'evidence'/'v2_live'; evidence.mkdir(parents=True,exist_ok=True)
+    from app.core.test_isolation import start_test_runtime
+    import tempfile
+    isolated=start_test_runtime(Path(tempfile.mkdtemp(prefix='tt_v2_live_')))
+    source=ConnectionStore(Path(os.environ['LOCALAPPDATA'])/'TTChuangzuo')
+    settings=isolated/'prefs'; selected=source.all()
+    class ReadOnlyCredentials(LiveConnections):
+        def secret_snapshot(self,c):return source.secret_snapshot(c)
+    connections=ReadOnlyCredentials(settings)
+    for c in selected:connections.save(c)
+    evidence=isolated/'evidence'; evidence.mkdir(parents=True,exist_ok=True)
     app=QApplication([]); window=MainWindow(Workspace(evidence/'data'),ROOT/'resources',evidence/'preferences.json')
-    window.connections=LiveConnections(settings); window.image_connections=ImageConnectionStore(settings); window.assistant.refresh_models(); window.settings.refresh(); window.options['restore_last']=False; window.show(); app.processEvents()
+    window.connections=connections; window.image_connections=ImageConnectionStore(settings); window.assistant.refresh_models(); window.settings.c.reload(); window.options['restore_last']=False; window.show(); app.processEvents()
     records=[]
     def wait():
         deadline=time.monotonic()+400

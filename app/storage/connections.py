@@ -59,6 +59,8 @@ class SecretVault:
             return key in self._read()
 
     def set(self, key, value, allow_empty=False):
+        from app.core.test_isolation import guard_test_write
+        guard_test_write(self.path)
         with self.lock:
             values = self._read()
             if value or allow_empty:
@@ -68,10 +70,17 @@ class SecretVault:
             atomic_write(self.path, self._crypt(json.dumps(values, ensure_ascii=False).encode('utf-8')))
 
     def delete_connection(self, connection_id):
+        from app.core.test_isolation import guard_test_write
+        guard_test_write(self.path)
         with self.lock:
             values = self._read()
             values = {key: value for key, value in values.items() if key != connection_id and not key.startswith(connection_id + ':v')}
             atomic_write(self.path, self._crypt(json.dumps(values, ensure_ascii=False).encode('utf-8')))
+    def clear(self):
+        from app.core.test_isolation import guard_test_write
+        guard_test_write(self.path)
+        with self.lock:
+            self.path.unlink(missing_ok=True)
 
 
 class ConnectionStore:
@@ -95,12 +104,16 @@ class ConnectionStore:
         return result
 
     def save(self, connection: Connection, secret=None):
+        from app.core.test_isolation import guard_test_write
+        guard_test_write(self.path)
         with self.lock:
             connection.validate(require_model=False)
             previous = self.all()
             old = next((item for item in previous if item.id == connection.id), None)
-            from urllib.parse import urlparse
-            changed_scope = old and (old.provider != connection.provider or urlparse(old.base_url).hostname != urlparse(connection.base_url).hostname)
+            changed_scope = old and (old.provider != connection.provider or old.base_url.rstrip('/') != connection.base_url.rstrip('/'))
+            changed_capability = old and any(getattr(old, key, None) != getattr(connection, key, None) for key in ('provider', 'base_url', 'model', 'cli_path'))
+            if changed_capability or secret is not None:
+                connection = replace(connection, capability_status='未验证', verification={})
             if secret is not None or changed_scope:
                 connection = replace(connection, credential_version=(old.credential_version if old else 0) + 1)
                 # Append-only credential references: failed JSON writes leave old

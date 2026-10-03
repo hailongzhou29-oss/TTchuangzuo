@@ -67,6 +67,9 @@ class ProjectStore:
 
     @contextmanager
     def connection(self, write=False):
+        if write:
+            from app.core.test_isolation import guard_test_write
+            guard_test_write(self.root)
         connection = sqlite3.connect(self.path, timeout=5)
         connection.row_factory = sqlite3.Row
         connection.execute('PRAGMA foreign_keys=ON')
@@ -214,11 +217,11 @@ class ProjectStore:
                     identities[y] = previous[x]['block_id']
         return [dict(block_id=identities.get(i, new_id()), order=i, text=line, kind='paragraph') for i, line in enumerate(lines)]
 
-    def add_document(self, title: str, text='', kind='小说', source_id=None) -> str:
+    def add_document(self, title: str, text='', kind='小说', source_id=None, *, _connection=None) -> str:
         if not title.strip():
             raise ValueError('文档标题不能为空')
         did, rid = new_id(), new_id()
-        with self.connection(write=True) as con:
+        with (nullcontext(_connection) if _connection is not None else self.connection(write=True)) as con:
             position = con.execute('SELECT COALESCE(MAX(position),-1)+1 FROM documents').fetchone()[0]
             con.execute('INSERT INTO documents(id,title,kind,position,head,source_id) VALUES(?,?,?,?,?,?)', (did, title.strip(), kind, position, rid, source_id))
             con.execute('INSERT INTO revisions VALUES(?,?,?,?,?,?)', (rid, did, text, json.dumps(self._blocks(text, []), ensure_ascii=False), '新建或导入', now()))

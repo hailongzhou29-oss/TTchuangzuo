@@ -57,12 +57,17 @@ class Connection:
     tool_call: bool = False
     tool_stream: bool = False
     pricing: dict = field(default_factory=dict)
+    output_mode: str = 'manual'
+    format_mode: str = 'auto'
 
     def validate(self, require_model=True):
+        if self.format_mode not in {'auto','manual'}: raise ValueError('请选择软件自动适配或高级手动结果格式')
+        if self.output_mode not in {'manual','auto'}:
+            raise ValueError('请选择手动输出上限或自动按作品目标')
         if self.pricing:
             from app.core.budget import validate_price
             validate_price(self.pricing)
-        if self.provider not in PRESETS or not self.name.strip() or (require_model and not self.model.strip()):
+        if self.provider not in PRESETS or not self.name.strip() or (require_model and self.provider != 'codex' and not self.model.strip()):
             raise ValueError('请填写连接名称、服务商和实际模型 ID')
         if not 10 <= self.timeout <= 1800 or not 128 <= self.max_output <= 65536 or self.context_limit < self.max_output:
             raise ValueError('超时、输出限制或上下文限制无效')
@@ -136,6 +141,7 @@ class TextResult:
     warnings: list[str] = field(default_factory=list)
     tool_calls: list[dict] = field(default_factory=list)
     protocol_message: dict = field(default_factory=dict)
+    diagnostics: dict = field(default_factory=dict)
 
     def public(self):
         return asdict(self)

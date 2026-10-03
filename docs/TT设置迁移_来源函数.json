@@ -1,0 +1,82 @@
+{
+  "commit": "8f80b197e66c61f16c19596c0da5fcdc642017ee",
+  "source_sha": "15e70a336353cb1376a9c5f76e9c532125f17c8c",
+  "functions": [
+    {
+      "function": "_build_codex_tab",
+      "sha256": "8206451c492bdfd3aaa55e232cb34657a299902e5016440b1434275153f99f65"
+    },
+    {
+      "function": "toggle_codex_advanced",
+      "sha256": "7523af97d23d2f36736d3bb96403029e9e236eb08b6bd9335e9d2f7e586b6cc9"
+    },
+    {
+      "function": "detect_codex_ui",
+      "sha256": "2b38f7776d1b0e17b4f47bff80482cf44aeee07d85b3da9483c48f0801d84aa2"
+    },
+    {
+      "function": "choose_codex_command",
+      "sha256": "0fac43404ac6f470948ddc5168ad21cb12002adc77c3072bb1fe953f038e7b67"
+    },
+    {
+      "function": "save_codex_command",
+      "sha256": "21389c213ac8179e14767fffc7f80d7ac4f1d4e02d746886b6e33ff16bd88ce4"
+    },
+    {
+      "function": "clear_codex_command",
+      "sha256": "4e00a21ea5b62059b519caada1f2d1b95f62de81b6838f9b0e61c7f73e4ca2ca"
+    },
+    {
+      "function": "save_current_channel",
+      "sha256": "c707a27f30bba36e9cb2b4feea3e977725f88bfd3110668dec2ec125874e8999"
+    },
+    {
+      "function": "save_codex_model_settings",
+      "sha256": "aaaf49615ec29e0ede848426a7d719e5624b331aba6012e06eb44dc56e9af7fa"
+    },
+    {
+      "function": "channel_form_is_dirty",
+      "sha256": "7cf6278c09d093b9be4cb12441a35b449fa67effb82fa42f0f85a01ff0061cc0"
+    },
+    {
+      "function": "activate_current_model",
+      "sha256": "0953d7eae1093ff1ff12bcf897d05dba8c51cadcbdd7ff9adcaf85bc584fec34"
+    },
+    {
+      "function": "current_provider",
+      "sha256": "9b27c914218e6831c602b15b35567ba15d3777ff895a11f8b46d1b4b9e6dbe29"
+    },
+    {
+      "function": "provider_changed",
+      "sha256": "c04893f4acad4224a61cf30e54763cc8585a00c66a0f45780beae5da81570119"
+    },
+    {
+      "function": "update_provider_tab_labels",
+      "sha256": "2cee55df382c884fb9e0b80e2b56812248cf283eec13f8c5e9c54ada7a6bf04b"
+    },
+    {
+      "function": "_build_openai_image_settings_tab",
+      "sha256": "9ebca35e8f4929d6891d3fb40cbda9dc8ef9bcf264e0a65c74ec9c7127b05ac5"
+    },
+    {
+      "function": "_set_openai_image_size_choices",
+      "sha256": "8f09b09788a7ae21301bb49bf35b81e58ce2ef3102d6f9f1039de863bdbf1592"
+    },
+    {
+      "function": "_set_openai_image_ratios",
+      "sha256": "8317b94f61148db1e8141ea08d9561b67679cac7eb1a8dc795d1b033b186dc82"
+    },
+    {
+      "function": "_set_openai_image_quality_choices",
+      "sha256": "da5b6fab3e25b4aa4f2af1acae5fbe01c790ce39b2ca81fe438849690e2599af"
+    },
+    {
+      "function": "_render_openai_image_capability",
+      "sha256": "5ebf95d4e9de0c912eef65f1f989038ab56fd011005d115e2f823b8ed89e68ef"
+    },
+    {
+      "function": "refresh_openai_image_manual_summary",
+      "sha256": "983fabb1bc53e183b970e2a36047c31efab8324ea0abc0e8a9f22279094c474c"
+    }
+  ]
+}

@@ -57,10 +57,14 @@ class ProjectTools:
         self.fact_ids = []
 
     def schemas(self):
+        if self.snapshot.get('v2_task'):
+            allowed={'read_document','search_project','read_facts','read_rules','validate_draft'}
+            if self.snapshot['v2_task']=='modify': allowed.add('propose_patch')
+            return [s for s in TOOL_SCHEMAS if s['function']['name'] in allowed]
         return TOOL_SCHEMAS
 
     def execute(self, name, arguments):
-        spec = next((item for item in TOOL_SCHEMAS if item['function']['name'] == name), None)
+        spec = next((item for item in self.schemas() if item['function']['name'] == name), None)
         if not spec:
             raise ValueError('该工具未授权：' + str(name))
         check_arguments(spec['function']['parameters'], arguments)

@@ -185,7 +185,8 @@ class ImageService:
         job_root.mkdir(parents=True, exist_ok=True)
         references = [self.asset(item['asset_id'])[1] for item in snapshot['reference_assets']]
         mask = self.asset(snapshot['mask_asset']['id'])[1] if snapshot['mask_asset'] else None
-        gateway = provider or (CodexImageProvider() if connection.provider == 'image_codex' else HttpImageProvider())
+        from app.providers.codex_text import CodexTextProvider
+        gateway = provider or (CodexImageProvider(bridge=CodexTextProvider(self.connections.path.parent)) if connection.provider == 'image_codex' else HttpImageProvider())
         on_state('submitting')
         try:
             price=connection.pricing if connection.provider=='image_http' else {}

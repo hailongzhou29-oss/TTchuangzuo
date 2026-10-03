@@ -8,6 +8,15 @@ from app.ui.theme import THEMES
 
 ROOT = Path(__file__).resolve().parents[2] / 'resources' / 'icons'
 
+APPLICATION_ID='TTChuangzuo.Creator.Desktop'
+
+def application_icon():
+    return QIcon(str(ROOT/'tt-creator.ico')) if (ROOT/'tt-creator.ico').is_file() else QIcon(str(ROOT/'tt-creator.svg'))
+
+def install_windows_identity():
+    import ctypes,os
+    if os.name=='nt': ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APPLICATION_ID)
+
 
 def icon(name, color='#596579', size=24):
     path = ROOT / (name + '.svg')

@@ -86,7 +86,7 @@ class HttpTextProvider:
             raise RuntimeError(redact(f'认证/模型列表检查失败：HTTP {getattr(exc, "code", "网络错误")}', secret)) from None
 
     def generate(self, connection: Connection, secret: str, messages: list[dict], cancel: CancelToken,
-                 on_text=lambda text: None, schema=None, reasoning=None, tools=None):
+                 on_text=lambda text: None, schema=None, reasoning=None, tools=None, thinking=None):
         connection.validate()
         result = TextResult(model=connection.model)
         started = time.monotonic()
@@ -103,6 +103,10 @@ class HttpTextProvider:
             result.accepted = False
             return result
         payload = dict(model=connection.model, messages=messages, stream=connection.stream, max_tokens=connection.max_output)
+        if thinking is not None:
+            if connection.provider!='deepseek' or connection.model not in {'deepseek-flash','deepseek-v4-flash','deepseek-v4-pro'} or not isinstance(thinking,bool):
+                raise ValueError('该连接未声明支持思考模式开关')
+            payload['thinking']=dict(type='enabled' if thinking else 'disabled')
         if tools:
             if not connection.tool_call:
                 raise ValueError('当前连接未声明项目工具能力')
@@ -139,7 +143,7 @@ class HttpTextProvider:
                 result.status = 'completed'
             elif result.finish_reason in {'length', 'max_tokens'}:
                 result.status = 'incomplete'
-                result.error = '输出被截断，保留未完成候选，不能采纳'
+                result.error = f'输出被截断（本次上限{connection.max_output:,} token），保留未完成候选，不能采纳。请到设置 → 国内模型 → 当前连接调整“输出长度”，或缩短本次目标／修改范围。原稿保留，没有自动重发。'
             elif result.finish_reason in {'content_filter', 'refusal'}:
                 result.status = 'failed'
                 result.error = '服务拒绝生成，原稿未改变'

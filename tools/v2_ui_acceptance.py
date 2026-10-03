@@ -36,7 +36,7 @@ def main():
         # Keep mocks in this isolated executable, never in user connection files.
         connection=Connection('fixture','界面测试','custom','fixture',base_url='https://fixture.invalid',max_output=8192,context_limit=65536)
         window.connections.save(connection,'fixture-secret'); window.assistant.refresh_models(); window.assistant.model.setCurrentIndex(window.assistant.model.findData(connection.id))
-        check('五页顺序',window.pages.count()==5 and [window.navigation.item(i).text() for i in range(4)]==['首页','剧本','小说','仿写'])
+        check('六页及导航顺序',window.pages.count()==6 and [window.navigation.item(i).text() for i in range(4)]==['首页','创建剧本','创建小说','仿写内容'])
         window.navigate(4); app.processEvents(); check('设置在主页面，无设置弹窗',window.current_page() is window.settings and not window.assistant.isVisible() and not any(isinstance(w,QDialog) and w.isVisible() for w in app.topLevelWidgets()))
         window.new_work('script'); app.processEvents(); page=window.creators['script']; check('无想法默认3分钟',page.read_config()['duration']==180 and not page.idea.toPlainText())
         page.fields['genre'].setCurrentIndex(page.fields['genre'].findData('G07')); page.fields['subgenres'].set_values(['G07.3']); page.config_changed()
@@ -79,13 +79,18 @@ def main():
                 for index in range(5):
                     window.navigate(index); app.processEvents(); check(f'{theme} {size} 第{index}页正文空间',window.pages.width()>300)
                     if index in (1,2,3):
-                        p=window.current_page(); check(f'正文保持可用高度 {p.kind} {size} height={p.editor.height()}',p.editor.height()>100)
+                        p=window.current_page()
+                        if p.kind=='script': p.set_view(1); app.processEvents()
+                        check(f'正文保持可用高度 {p.kind} {size} height={p.editor.height()}',p.editor.height()>100)
                 if size==(1440,900):
                     for index in range(5): window.navigate(index); app.processEvents(); window.grab().save(str(evidence/f'{theme}_{index}.png'))
-        window.navigate(1); window.show_materials(window.current_page()); app.processEvents(); window.grab().save(str(evidence/'资料与规则.png')); window.current_page().materials.close_panel()
+        window.navigate(1); window.show_materials(window.current_page()); app.processEvents(); check('资料与规则为独立页面',window.current_page() is window.materials_page); window.grab().save(str(evidence/'资料与规则.png')); window.navigate(1)
         window.navigate(4); check('文本及图片表单密钥不明文',window.settings.text['key'].echoMode()==QLineEdit.EchoMode.Password and window.settings.image['key'].echoMode()==QLineEdit.EchoMode.Password)
         for kind in ('script','novel','rewrite'):
-            window.navigate({'script':1,'novel':2,'rewrite':3}[kind]); p=window.current_page(); window.resize(1100,720); p.toggle_advanced(); app.processEvents(); check('高级选择展开保留正文空间',p.editor.height()>100); p.toggle_advanced()
+            window.navigate({'script':1,'novel':2,'rewrite':3}[kind]); p=window.current_page(); window.resize(1100,720)
+            if kind=='script': p.set_view(0)
+            p.toggle_advanced(); app.processEvents()
+            check(f'高级选择展开 {kind} height={p.editor.height()}',p.form_scroll.isVisible() if kind=='script' else p.editor.height()>100); p.toggle_advanced()
         from PySide6.QtGui import QInputMethodEvent,QKeyEvent
         inp=window.assistant.input; sent=[]; inp.send.connect(lambda:sent.append(True)); app.sendEvent(inp,QInputMethodEvent('候选',[])); app.sendEvent(inp,QKeyEvent(QEvent.Type.KeyPress,Qt.Key.Key_Return,Qt.KeyboardModifier.NoModifier)); check('输入法预编辑期间不误发',not sent)
         ratio=window.devicePixelRatioF(); report.append(dict(check='实际设备缩放',ratio=ratio,passed=True))

@@ -6,6 +6,8 @@ import os
 import sys
 import time
 import tomllib
+import tempfile
+from dataclasses import replace
 from datetime import datetime,timezone
 from pathlib import Path
 
@@ -25,36 +27,37 @@ from app.ui.window import MainWindow
 
 parser=argparse.ArgumentParser()
 parser.add_argument('channel',choices=['ds','codex-image'])
+parser.add_argument('--test-root',type=Path)
 args=parser.parse_args()
-settings=Path(os.environ['LOCALAPPDATA'])/'TTChuangzuo'
+from app.core.test_isolation import start_test_runtime
+isolated=start_test_runtime(args.test_root or Path(tempfile.mkdtemp(prefix='tt_channel_test_')))
+production=Path(os.environ['LOCALAPPDATA'])/'TTChuangzuo'
+settings=isolated/'prefs'
 prefs=settings/'preferences.json'
-workspace=Workspace(ROOT/'user_data')
+workspace=Workspace(isolated/'data')
 secret=None
 if args.channel=='ds':
-    secret=getpass.getpass('DeepSeek key (hidden input): ')
-    if not secret:
-        raise ValueError('未提供密钥，没有提交')
-    connections=ConnectionStore(settings)
-    connection=Connection('live_deepseek','DeepSeek 软件通道实测','deepseek','',
-        base_url='https://api.deepseek.com',timeout=60,max_output=128,stream=True,reasoning_levels=('none',))
-    models=HttpTextProvider().list_models(connection,secret)
-    selected=next((name for name in ('deepseek-flash','deepseek-v4-flash','deepseek-chat') if name in models),None)
-    if not selected:
-        raise ValueError('没有找到本次小文本测试支持的模型，未生成')
-    from dataclasses import replace
-    connection=replace(connection,model=selected,verification=dict(auth_models=dict(status='已实测',checked=datetime.now(timezone.utc).isoformat(),model_count=len(models))))
-    connections.save(connection,secret)
-    print(json.dumps(dict(stage='models_received',models=models,chosen_model=selected),ensure_ascii=False),flush=True)
+    source=ConnectionStore(production)
+    original=next((c for c in source.all() if c.provider=='deepseek' and c.enabled),None)
+    if original is None:raise ValueError('没有已有安全连接；测试不收集新密钥或创建认证')
+    class IsolatedConnections(ConnectionStore):
+        def secret_snapshot(self,c):return source.secret_snapshot(c)
+    connections=IsolatedConnections(settings)
+    connection=replace(original,max_output=128,timeout=60,output_mode='manual')
+    connections.save(connection)
 else:
-    home=Path(os.environ.get('CODEX_HOME',str(Path.home()/'.codex')))
-    config=tomllib.loads((home/'config.toml').read_text(encoding='utf-8'))
-    connection=ImageConnection('live_codex_image','Codex 软件生图实测','image_codex',config['model'],
-        cli_path='K:/Tools/nodejs22/codex.cmd',timeout=420,sizes=('1024x1536',))
-    ImageConnectionStore(settings).save(connection)
+    source=ImageConnectionStore(production)
+    connection=next((c for c in source.all() if c.provider=='image_codex'),None)
+    if connection is None:raise ValueError('没有已有安全生图连接；测试不新增认证')
+    class IsolatedImages(ImageConnectionStore):
+        def secret_snapshot(self,c):return source.secret_snapshot(c)
+    connections=IsolatedImages(settings);connections.save(connection)
 
 project=workspace.create('软件通道实测_'+args.channel+'_'+datetime.now().strftime('%Y%m%d_%H%M%S'),'小说')
 app=QApplication([])
 window=MainWindow(workspace,ROOT/'resources',prefs)
+if args.channel=='ds':window.connections=connections
+else:window.image_connections=connections
 window.open_project(project.root)
 window.show()
 dialog=None
@@ -94,7 +97,7 @@ if args.channel=='codex-image':
     report['actual_images']=[dict(path=str(project.root/image['relative']),width=image['width'],height=image['height'],mime=image['mime'],sha256=image['sha256']) for image in result.get('images',[])]
 if secret:
     report=redact_tree(report,secret)
-evidence=ROOT/'docs'/'evidence'
+evidence=isolated/'evidence'
 write_json(evidence/('live_'+args.channel+'_software.json'),report)
 print(json.dumps(report,ensure_ascii=False),flush=True)
 if dialog:

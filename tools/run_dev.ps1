@@ -23,12 +23,17 @@ try {
     if (-not $PythonPath -or -not (Test-Path -LiteralPath $PythonPath)) {
         throw '未找到 Python。请用 -PythonPath 指定已有 Python 3.12+，或在 local.runtime.json 配置 python 路径。'
     }
-    & $PythonPath (Join-Path $PSScriptRoot 'check_runtime.py')
-    if ($LASTEXITCODE -ne 0) { throw 'Python / PySide6 检查失败。请在所选环境运行 python -m pip install -r requirements.txt；启动器不会自动安装。' }
-    if ($CheckOnly) { exit 0 }
+    if ($CheckOnly) {
+        & $PythonPath (Join-Path $PSScriptRoot 'check_runtime.py')
+        if ($LASTEXITCODE -ne 0) { throw 'Python / PySide6 检查失败。启动器不会自动安装依赖。' }
+        exit 0
+    }
     try { $Host.UI.RawUI.WindowTitle = 'TT创作助手 · 开发版' } catch { }
-    & $PythonPath -m app.main
-    exit $LASTEXITCODE
+    $windowlessPython = Join-Path (Split-Path -Parent $PythonPath) 'pythonw.exe'
+    if (-not (Test-Path -LiteralPath $windowlessPython)) { throw '所选 Python 缺少 pythonw.exe，请检查运行环境。' }
+    $bootstrapPath = Join-Path $PSScriptRoot 'gui_bootstrap.pyw'
+    Start-Process -FilePath $windowlessPython -ArgumentList ('"' + $bootstrapPath + '"') -WorkingDirectory $projectRoot -WindowStyle Hidden
+    exit 0
 } catch {
     Write-Host ('启动失败：' + $_.Exception.Message) -ForegroundColor Red
     Write-Host ('日志目录：' + (Join-Path $projectRoot 'logs'))

@@ -64,6 +64,8 @@ def estimate(price, usage=None, input_tokens=None, output_limit=None, image_coun
 
 class BudgetBook:
     def __init__(self,root):
+        from app.core.test_isolation import guard_test_write
+        guard_test_write(root)
         root.mkdir(parents=True,exist_ok=True)
         self.path=root/'budget.sqlite'
         with self.connection(True) as con:

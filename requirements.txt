@@ -1,1 +1,3 @@
 PySide6==6.11.1
+langgraph==1.0.10
+langgraph-checkpoint-sqlite==3.0.1

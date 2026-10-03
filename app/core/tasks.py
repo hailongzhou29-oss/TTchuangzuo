@@ -314,7 +314,7 @@ class TaskService:
             row = con.execute('SELECT state FROM tasks WHERE id=?', (task_id,)).fetchone()
             if not row or row['state'] != 'ready':
                 raise ValueError('同一任务已执行或已被接受，不能重复提交')
-            con.execute('UPDATE tasks SET state=?,updated=? WHERE id=?', ('waiting', now(), task_id))
+            con.execute('UPDATE tasks SET state=?,snapshot=?,updated=? WHERE id=?', ('waiting',json.dumps(snapshot,ensure_ascii=False), now(), task_id))
         partial = []
         messages = json.loads(json.dumps(snapshot['messages']))
         trace = []
@@ -325,6 +325,7 @@ class TaskService:
         usage_rounds = []
         transcript = []
         used_calls = 0
+        memory_result={}
         seen_tools = set()
         repeated = False
         cached = self.cache.get(snapshot)
@@ -343,80 +344,32 @@ class TaskService:
                 last_checkpoint = time.monotonic()
         self._save_state(task_id, 'waiting', None)
         try:
-            gateway = provider or (CodexTextProvider() if connection.provider == 'codex' else HttpTextProvider())
+            gateway = provider or (CodexTextProvider(self.connections.path.parent) if connection.provider == 'codex' else HttpTextProvider())
             secret = self.connections.secret_snapshot(connection) if connection.provider != 'codex' else None
             result = TextResult(status='cancelled', accepted=False, model=connection.model)
-            for call_index in range(snapshot['budget']['call_limit']):
-                if cancel.cancelled:
-                    result = TextResult(text=''.join(partial), status='cancelled', model=connection.model)
-                    break
-                estimate = estimate_tokens(messages) + (estimate_tokens(tools) if tools else 0)
-                if estimate + connection.max_output > connection.context_limit:
-                    result = TextResult(text=''.join(partial), status='budget_paused', model=connection.model,
-                        error='闭合工具上下文超过模型范围，已暂停，没有继续请求')
-                    break
-                price=connection.pricing if connection.provider!='codex' else {}
-                amount=estimate_cost(price,input_tokens=estimate_tokens(messages)+(estimate_tokens(tools) if tools else 0),output_limit=connection.max_output)
-                reservation=self.budget_book.reserve(snapshot['project_id'],task_id,call_index,amount,price,snapshot['budget'].get('monetary_limits',{}))
-                used_calls += 1
-                if connection.provider == 'codex':
-                    result = gateway.generate(connection, messages, cancel, receive, schema=snapshot['schema'], reasoning=snapshot['reasoning'])
-                else:
-                    options = dict(schema=snapshot['schema'], reasoning=snapshot['reasoning'])
-                    if tools:
-                        options['tools'] = tools
-                    result = gateway.generate(connection, secret, messages, cancel, receive, **options)
-                if not result.usage:
-                    result.usage = normalize_usage(connection.provider, result.raw_usage)
-                estimate_amount=estimate_cost(price,usage=result.usage) if price else None
-                self.budget_book.settle(reservation,estimate_amount,rejected=result.accepted is False)
-                if price:
-                    result.usage.update(estimated_cost=estimate_amount,currency=price['currency'],price_version=price['version'],price_source=price['source'],cost_status='估算' if estimate_amount is not None else '未知，保留预留')
-                usage_rounds.append(result.usage)
-                self._ledger(task_id, connection, result)
-                if result.status != 'tool_required':
-                    if result.status == 'completed':
-                        message = dict(result.protocol_message, role='assistant', content=result.text)
-                        transcript.append(message)
-                    break
-                if not tools or not result.tool_calls:
-                    raise ValueError('模型请求了未授权的工具轮次')
-                # Parse complete calls first; validate each whitelisted schema before its execution.
-                HttpTextProvider._validate_calls(result)
-                assistant = dict(result.protocol_message, role='assistant', content=result.text or None, tool_calls=result.tool_calls)
-                messages.append(assistant)
-                transcript.append(assistant)
-                batch_ids = set()
-                for call in result.tool_calls:
-                    if call['id'] in batch_ids:
-                        raise ValueError('重复工具调用 ID')
-                    batch_ids.add(call['id'])
-                    name = call['function']['name']
-                    arguments = json.loads(call['function']['arguments'])
-                    fingerprint = digest(json.dumps([name, arguments], ensure_ascii=False, sort_keys=True))
-                    try:
-                        if fingerprint in seen_tools:
-                            repeated = True
-                            outcome = dict(error='同参数工具调用已执行，停止重复循环')
-                        else:
-                            seen_tools.add(fingerprint)
-                            outcome = registry.execute(name, arguments)
-                    except (ValueError, TypeError, KeyError) as exc:
-                        outcome = dict(error=str(exc), executed=False)
-                    trace.append(dict(name=name, arguments=arguments, outcome=outcome))
-                    message = dict(role='tool', tool_call_id=call['id'], content=json.dumps(outcome, ensure_ascii=False))
-                    messages.append(message)
-                    transcript.append(message)
-                if repeated or call_index + 1 >= snapshot['budget']['call_limit']:
-                    result.status = 'budget_paused'
-                    result.error = '重复工具循环已停止' if repeated else '已达到调用次数上限；工具协议已闭合，未发起下一轮'
-                    break
+            from app.core.agent_graph import run_graph
+            result, used_calls, trace, transcript, usage_rounds,memory_result = run_graph(
+                self, snapshot, connection, gateway, secret, cancel, receive, registry, tools)
         except BudgetError as exc:
             result=TextResult(text=''.join(partial),status='budget_paused',model=connection.model,error=str(exc),usage=normalize_usage(connection.provider,None))
         except Exception as exc:
             result = TextResult(text=''.join(partial), status='cancelled' if cancel.cancelled else 'failed',
                                 model=connection.model, error=redact(str(exc)), usage=normalize_usage(connection.provider, None))
-        if cancel.cancelled and result.status == 'completed':
+        # A parse/tool failure must not erase rounds already submitted and accounted for.
+        external_receipts=[]
+        with self.store.connection() as con:
+            if con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='agent_external_rounds'").fetchone():
+                rounds=con.execute('SELECT ordinal,state,request_id,response,updated FROM agent_external_rounds WHERE task_id=? ORDER BY ordinal',(task_id,)).fetchall()
+                for row in rounds:
+                    saved=json.loads(row['response']) if row['response'] else {}
+                    external_receipts.append(dict(ordinal=row['ordinal'],state=row['state'],request_id=row['request_id'],updated=row['updated'],usage=saved.get('usage',{}),diagnostics=saved.get('diagnostics',{})))
+                if rounds and used_calls<len(rounds):
+                    used_calls=len(rounds); usage_rounds=[json.loads(r['response']).get('usage',{}) for r in rounds if r['response']]
+                    saved=json.loads(rounds[-1]['response']) if rounds[-1]['response'] else {}
+                    result.request_id=saved.get('request_id',''); result.accepted=saved.get('accepted'); result.raw_usage=saved.get('raw_usage'); result.diagnostics=saved.get('diagnostics',{}); result.elapsed=sum(json.loads(r['response']).get('elapsed',0) for r in rounds if r['response'])
+        stages=memory_result.get('postprocessing') or {}
+        content_retained=stages.get('primary_status')=='completed' and stages.get('summary_status') not in {'not_started','completed'}
+        if cancel.cancelled and result.status == 'completed' and not content_retained:
             result.status = 'cancelled'
             result.error = '取消后的响应已保留，不能自动采纳'
         if not result.usage:
@@ -426,7 +379,19 @@ class TaskService:
         payload = result.public()
         payload['development_test'] = snapshot.get('development_test', False)
         payload.update(used_calls=used_calls, tool_trace=trace, protocol_transcript=transcript,
-                       proposals=registry.proposals, fact_ids=registry.fact_ids)
+                        proposals=registry.proposals, fact_ids=registry.fact_ids)
+        payload['external_receipts']=external_receipts
+        payload.update(memory_result)
+        if content_retained:payload['requires_adoption']=True
+        if snapshot.get('v2_task'):
+            read_ids={snapshot['target_id']}; pages=[]
+            prefetch=snapshot.get('context_coverage')
+            if prefetch: read_ids.update(d['document_id'] for d in prefetch['documents'] if d['complete'])
+            for entry in trace:
+                if entry['name']=='read_document' and isinstance(entry['outcome'].get('result'),dict):
+                    value=entry['outcome']['result']; read_ids.add(value['document_id']); pages.append(dict(document_id=value['document_id'],revision=value['revision'],blocks=[b['block_id'] for b in value['blocks']],has_more=value['has_more'],next_cursor=value['next_cursor']))
+            payload['coverage']=dict(initial_document=snapshot['target_id'],initial_range=[snapshot['target_start'],snapshot['target_end']],tool_pages=pages,unread_documents=[d['document_id'] for d in snapshot['document_manifest'] if d['document_id'] not in read_ids],note='分页读取或搜索命中不等于已读完整篇；未读取内容不能视为已检查')
+            if prefetch: payload['coverage']['application_prefetch']=prefetch
         if not payload['usage']:
             payload['usage'] = normalize_usage(connection.provider, result.raw_usage)
         if result.status == 'completed':
@@ -450,14 +415,31 @@ class TaskService:
                             fact_ids.append(fid)
                     payload['fact_ids'].extend(fact_ids)
             except (ValueError, TypeError, KeyError) as exc:
-                payload['status'] = 'invalid_output'
-                payload['error'] = '输出合同检查失败，原响应保留：' + str(exc)
+                raw=result.text.strip()
+                if snapshot.get('v2_task')=='modify' and raw and not raw.startswith(('{','[','```')):
+                    payload['candidate']=dict(text=raw,explanation='模型返回了未结构化改文，请核对替换内容和范围后采用。',needs_review=True)
+                    payload['warnings']=payload.get('warnings',[])+['未结构化回复仅作为待核对候选，尚未写入正文']
+                else:
+                    payload['status'] = 'invalid_output'
+                    payload['error'] = '输出合同检查失败，原响应保留：' + str(exc)
         self._save_state(task_id, payload['status'], payload)
-        if payload['status'] == 'completed':
+        if payload['status'] == 'completed' and not payload.get('requires_adoption'):
             self.cache.put(snapshot, payload)
-        self.chat.append(snapshot['chat_thread_id'], snapshot['target_id'], snapshot['stage'], 'assistant', result.text,
-                         task_id, payload['status'], protocol=transcript if snapshot.get('tools_enabled') else None)
+        if not snapshot.get('internal_review'):
+            self.chat.append(snapshot['chat_thread_id'], snapshot['target_id'], snapshot['stage'], 'assistant', result.text,
+                             task_id, payload['status'], protocol=transcript if snapshot.get('tools_enabled') else None)
         return payload
+
+    def record_application(self,task_id,notice):
+        """Persist actual save/candidate outcome instead of raw schema wording."""
+        with self.store.connection(write=True) as con:
+            rows=con.execute("SELECT id,content FROM messages WHERE task_id=? AND role='assistant'",(task_id,)).fetchall()
+            for row in rows:
+                try:value=json.loads(row['content'])
+                except (ValueError,TypeError):value=None
+                if isinstance(value,dict) and value.get('format')=='tt-chat-message-1':value['text']=notice;content=json.dumps(value,ensure_ascii=False)
+                else:content=notice
+                con.execute('UPDATE messages SET content=? WHERE id=?',(content,row['id']))
 
     def _ledger(self, task_id, connection, result):
         with self.store.connection(write=True) as con:
@@ -490,7 +472,7 @@ class TaskService:
         """Only mark tasks interrupted when their owning process is no longer live."""
         recovered = []
         with self.store.connection() as con:
-            tasks=[dict(row) for row in con.execute("SELECT * FROM tasks WHERE stage!='image_generate' AND state IN ('ready','waiting','generating')")]
+            tasks=[dict(row) for row in con.execute("SELECT * FROM tasks WHERE stage!='image_generate' AND state IN ('ready','waiting','generating','reviewing')")]
         for task in tasks:
             snapshot = json.loads(task['snapshot'])
             pid = snapshot.get('owner_pid')
@@ -501,6 +483,21 @@ class TaskService:
             self._save_state(task['id'], 'uncertain', result)
             recovered.append(task['id'])
         return recovered
+
+    def resume_snapshot(self,task_id):
+        """Explicit local reconciliation/resume; unknown external acceptance blocks it."""
+        task=self.get(task_id)
+        if task['state'] not in {'uncertain','failed','storage_failed','application_failed'}: raise ValueError('该任务无需中断恢复，已完成候选请直接查看')
+        snapshot=dict(task['snapshot'])
+        if snapshot['project_id']!=self.store.metadata()['id']: raise ValueError('任务不属于当前项目')
+        with self.store.connection() as con:
+            exists=con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='agent_external_rounds'").fetchone()
+            rows=con.execute('SELECT * FROM agent_external_rounds WHERE task_id=?',(task_id,)).fetchall() if exists else []
+            for row in rows:
+                if 'response' not in row.keys() or not row['response'] or row['state'] not in {'completed','tool_required'}: raise ValueError('外部结果尚未可靠确认；保留原任务和已收到内容，不重复提交。图片请查询原任务，文本需先人工核对原渠道结果。')
+        snapshot['resume_graph']=True
+        with self.store.connection(write=True) as con: con.execute('UPDATE tasks SET state=?,updated=? WHERE id=?',('ready',now(),task_id))
+        return snapshot
 
     def get(self, task_id):
         with self.store.connection() as con:

@@ -12,6 +12,8 @@ def digest(text: str | bytes) -> str:
 
 
 def atomic_write(path: Path, data: bytes) -> None:
+    from app.core.test_isolation import guard_test_write
+    guard_test_write(path)
     path=Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     # Packaged Windows apps can redirect AppData to another volume. Resolve the

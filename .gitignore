@@ -1,11 +1,15 @@
 __pycache__/
 *.py[cod]
 .venv/
+.deps/
+/backups/
 user_data/
 /data/
 logs/
 *.sqlite*
 local.runtime.json
+/attachments/
+/*.lnk
 
 # Credentials and local authentication
 .env

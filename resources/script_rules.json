@@ -1,0 +1,6266 @@
+{
+  "version": "2026-10-01",
+  "source": "TT创作助手_剧本页统一方案_待确认 (1).md",
+  "groups": {
+    "form": {
+      "title": "故事形式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "form.01",
+          "label": "短剧",
+          "body": "聚焦目标与冲突，信息及时回报，时长内形成一次有效变化",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.02",
+          "label": "剧情短片",
+          "body": "允许更充分的动作与情绪表达，仍保持清楚主线",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.03",
+          "label": "连续剧单集",
+          "body": "单集有局部目标与结果，并延续人物状态和伏笔",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.04",
+          "label": "原创电影感片段",
+          "body": "写独立可理解的原创情节片段，前因以必要信息补足",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.05",
+          "label": "广告剧情",
+          "body": "以剧情服务表达目标，利益与承诺仅用已知事实",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.06",
+          "label": "口播情景",
+          "body": "口述与场景行为结合，不要求数字人",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.07",
+          "label": "访谈情景",
+          "body": "问答形成信息推进，避免一问一答复述常识",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "form.08",
+          "label": "舞台片段",
+          "body": "表演、出入场与空间调度可执行",
+          "dimension": "form",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "mode": {
+      "title": "创作模式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "mode.01",
+          "label": "纯剧情",
+          "body": "不自动植入产品或行动号召。",
+          "dimension": "mode",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "mode.02",
+          "label": "剧情带货",
+          "body": "商业对象参与行为；未知功效、价格、评价、历史及体验不当事实编造；没有真实对象可明确虚构演示 本次采用：剧情带货。",
+          "dimension": "mode",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "mode.03",
+          "label": "同城探店",
+          "body": "商业对象参与行为；未知功效、价格、评价、历史及体验不当事实编造；没有真实对象可明确虚构演示 本次采用：同城探店。",
+          "dimension": "mode",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "mode.04",
+          "label": "文旅推广",
+          "body": "商业对象参与行为；未知功效、价格、评价、历史及体验不当事实编造；没有真实对象可明确虚构演示 本次采用：文旅推广。",
+          "dimension": "mode",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "mode.05",
+          "label": "品牌故事",
+          "body": "商业对象参与行为；未知功效、价格、评价、历史及体验不当事实编造；没有真实对象可明确虚构演示 本次采用：品牌故事。",
+          "dimension": "mode",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "language": {
+      "title": "语言模式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "language.01",
+          "label": "人物对白",
+          "body": "场景人物对话承担信息；无外部旁白，画外说话仍可属于对白",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.02",
+          "label": "旁白叙述",
+          "body": "叙述声音与画面互补；不默认所有人物动作都要解释",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.03",
+          "label": "旁白＋人物对白",
+          "body": "旁白交代必要跨时空信息，对白承担现场关系和选择，避免同义重复",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.04",
+          "label": "角色独白／自述",
+          "body": "明确说话者和讲述情境，区分事后回忆与当场倾诉",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.05",
+          "label": "内心独白＋对白",
+          "body": "心理声音与对外发声分开标记，他人不能听见内心独白",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.06",
+          "label": "对镜口述",
+          "body": "说话者直接面向观众，有明确交流目的；不默认数字人",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.07",
+          "label": "采访／问答",
+          "body": "提问与回答有推进，避免每次问题只是把答案重复一遍",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.08",
+          "label": "无语言",
+          "body": "不安排对白、旁白和独白；仍可有环境声、音效及音乐",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language.09",
+          "label": "自定义混合",
+          "body": "勾选内容来源及传播方式，例如对白＋旁白，其中一段对白通过录音播放",
+          "dimension": "language",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "sources": {
+      "title": "内容来源",
+      "multi": true,
+      "rows": [
+        {
+          "id": "sources.01",
+          "label": "场景人物发声",
+          "body": "区分现场可听语言、叙述声音与他人不可听见的心理声音；禁止加入未允许的来源 本次采用：场景人物发声。",
+          "dimension": "sources",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "sources.02",
+          "label": "旁白",
+          "body": "区分现场可听语言、叙述声音与他人不可听见的心理声音；禁止加入未允许的来源 本次采用：旁白。",
+          "dimension": "sources",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "sources.03",
+          "label": "内心声音",
+          "body": "区分现场可听语言、叙述声音与他人不可听见的心理声音；禁止加入未允许的来源 本次采用：内心声音。",
+          "dimension": "sources",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "delivery": {
+      "title": "传播方式",
+      "multi": true,
+      "rows": [
+        {
+          "id": "delivery.01",
+          "label": "现场",
+          "body": "说明声音传播情境及听者范围；传播方式不改变对白、旁白或内心的归属 本次采用：现场。",
+          "dimension": "delivery",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "delivery.02",
+          "label": "画外",
+          "body": "说明声音传播情境及听者范围；传播方式不改变对白、旁白或内心的归属 本次采用：画外。",
+          "dimension": "delivery",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "delivery.03",
+          "label": "电话",
+          "body": "说明声音传播情境及听者范围；传播方式不改变对白、旁白或内心的归属 本次采用：电话。",
+          "dimension": "delivery",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "delivery.04",
+          "label": "录音播放",
+          "body": "说明声音传播情境及听者范围；传播方式不改变对白、旁白或内心的归属 本次采用：录音播放。",
+          "dimension": "delivery",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "view": {
+      "title": "观看视角",
+      "multi": false,
+      "rows": [
+        {
+          "id": "view.auto",
+          "label": "自动",
+          "body": "自动；自动",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.subjective",
+          "label": "角色主观",
+          "body": "指定角色感官位置；不自动增加对镜交流；默认指定角色，显式信息揭示规则可补充观众前情",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.follow",
+          "label": "跟随角色",
+          "body": "外部镜头跟随指定角色；指定角色",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.observer",
+          "label": "旁观纪实",
+          "body": "现场观察；不保证素材真实性；当前现场可见事实，显式规则可补充来源",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.omniscient",
+          "label": "全知视角",
+          "body": "可跨角色、地点切换；允许多来源；不让每个角色拥有观众知道的全部信息",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.multiple",
+          "label": "多角色视角",
+          "body": "多个角色的有标识切换；跟随各段当前角色",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "view.address",
+          "label": "面向观众",
+          "body": "交流角色面向镜头后的观众；未指定部分自动；不推断观众与角色关系",
+          "dimension": "view",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "role": {
+      "title": "关系身份",
+      "multi": false,
+      "rows": [
+        {
+          "id": "role.01",
+          "label": "恋人",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：恋人。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.02",
+          "label": "家人",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：家人。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.03",
+          "label": "朋友",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：朋友。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.04",
+          "label": "陌生人",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：陌生人。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.05",
+          "label": "顾客",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：顾客。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.06",
+          "label": "商家",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：商家。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.07",
+          "label": "职场角色",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：职场角色。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.08",
+          "label": "调查者",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：调查者。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.09",
+          "label": "目击者",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：目击者。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.10",
+          "label": "游客",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：游客。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.11",
+          "label": "当地人",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：当地人。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role.12",
+          "label": "其他主体",
+          "body": "角色的行动和信息受具体关系与处境限制；不按关系刻板补全年龄性别 本次采用：其他主体。",
+          "dimension": "role",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "role_detail": {
+      "title": "具体身份",
+      "multi": false,
+      "rows": [
+        {
+          "id": "role_detail.01",
+          "label": "男友",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：男友。",
+          "dimension": "role_detail",
+          "parent": "role.01",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.02",
+          "label": "女友",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：女友。",
+          "dimension": "role_detail",
+          "parent": "role.01",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.03",
+          "label": "父母",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：父母。",
+          "dimension": "role_detail",
+          "parent": "role.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.04",
+          "label": "子女",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：子女。",
+          "dimension": "role_detail",
+          "parent": "role.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.05",
+          "label": "兄弟姐妹",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：兄弟姐妹。",
+          "dimension": "role_detail",
+          "parent": "role.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.06",
+          "label": "店员",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：店员。",
+          "dimension": "role_detail",
+          "parent": "role.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.07",
+          "label": "店主",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：店主。",
+          "dimension": "role_detail",
+          "parent": "role.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.08",
+          "label": "员工",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：员工。",
+          "dimension": "role_detail",
+          "parent": "role.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.09",
+          "label": "上司",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：上司。",
+          "dimension": "role_detail",
+          "parent": "role.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "role_detail.10",
+          "label": "同事",
+          "body": "明确关系主体，镜头从其眼睛观察与观众扮演其身份必须区分 本次采用：同事。",
+          "dimension": "role_detail",
+          "parent": "role.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "carrier": {
+      "title": "影像载体",
+      "multi": false,
+      "rows": [
+        {
+          "id": "carrier.01",
+          "label": "常规剧情",
+          "body": "无剧情内拍摄者要求，可根据故事设计镜头",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02",
+          "label": "个人记录",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03",
+          "label": "纪实拍摄",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04",
+          "label": "设备记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05",
+          "label": "实时传播",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06",
+          "label": "屏幕叙事",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07",
+          "label": "公共传播",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08",
+          "label": "档案素材",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.09",
+          "label": "混合载体",
+          "body": "来源切换有目的和识别线索，不能借混合掩盖因果或视角错误",
+          "dimension": "carrier",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "carrier_item": {
+      "title": "具体来源",
+      "multi": false,
+      "rows": [
+        {
+          "id": "carrier.01.1",
+          "label": "影视剧情呈现",
+          "body": "无剧情内拍摄者要求，可根据故事设计镜头；本次画面来源：影视剧情呈现。",
+          "dimension": "carrier_item",
+          "parent": "carrier.01",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.1",
+          "label": "手机随拍",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：手机随拍。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.2",
+          "label": "自拍日记",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：自拍日记。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.3",
+          "label": "旅行记录",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：旅行记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.4",
+          "label": "家庭录像",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：家庭录像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.5",
+          "label": "工作记录",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：工作记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.1",
+          "label": "跟拍纪录片",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：跟拍纪录片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.2",
+          "label": "观察纪录片",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：观察纪录片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.3",
+          "label": "人物访谈",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：人物访谈。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.4",
+          "label": "调查记录",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：调查记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.5",
+          "label": "探店纪实",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：探店纪实。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.1",
+          "label": "监控",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：监控。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.2",
+          "label": "门铃摄像头",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：门铃摄像头。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.3",
+          "label": "行车记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：行车记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.4",
+          "label": "执法记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：执法记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.5",
+          "label": "设备记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：设备记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.1",
+          "label": "直播",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：直播。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.2",
+          "label": "视频通话",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：视频通话。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.3",
+          "label": "远程会议",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：远程会议。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.4",
+          "label": "现场连线",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：现场连线。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.1",
+          "label": "聊天界面",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：聊天界面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.2",
+          "label": "电脑桌面",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：电脑桌面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.3",
+          "label": "手机操作",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：手机操作。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.4",
+          "label": "邮件与数字资料",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：邮件与数字资料。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.1",
+          "label": "新闻报道",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：新闻报道。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.2",
+          "label": "街头采访",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：街头采访。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.3",
+          "label": "发布会",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：发布会。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.4",
+          "label": "节目片段",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：节目片段。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.5",
+          "label": "广告片",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：广告片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.1",
+          "label": "旧录像",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：旧录像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.2",
+          "label": "历史影像",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：历史影像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.3",
+          "label": "照片记录",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：照片记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.4",
+          "label": "录音配画面",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：录音配画面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.5",
+          "label": "档案重构",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：档案重构。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "mixed_sources": {
+      "title": "混合来源",
+      "multi": true,
+      "rows": [
+        {
+          "id": "carrier.01.1",
+          "label": "影视剧情呈现",
+          "body": "无剧情内拍摄者要求，可根据故事设计镜头；本次画面来源：影视剧情呈现。",
+          "dimension": "carrier_item",
+          "parent": "carrier.01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.1",
+          "label": "手机随拍",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：手机随拍。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.2",
+          "label": "自拍日记",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：自拍日记。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.3",
+          "label": "旅行记录",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：旅行记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.4",
+          "label": "家庭录像",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：家庭录像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.02.5",
+          "label": "工作记录",
+          "body": "记录动机合理，随拍不等于持续抖动；人物对记录设备的意识保持一致；本次画面来源：工作记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.1",
+          "label": "跟拍纪录片",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：跟拍纪录片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.2",
+          "label": "观察纪录片",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：观察纪录片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.3",
+          "label": "人物访谈",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：人物访谈。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.4",
+          "label": "调查记录",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：调查记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.03.5",
+          "label": "探店纪实",
+          "body": "区分观察、采访、演绎，不能虚构真实采访或亲历证据；本次画面来源：探店纪实。",
+          "dimension": "carrier_item",
+          "parent": "carrier.03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.1",
+          "label": "监控",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：监控。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.2",
+          "label": "门铃摄像头",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：门铃摄像头。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.3",
+          "label": "行车记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：行车记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.4",
+          "label": "执法记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：执法记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.04.5",
+          "label": "设备记录",
+          "body": "各设备机位和可见范围有依据；行车/佩戴设备可移动，不错误要求全部固定；本次画面来源：设备记录。给出设备位置和可见范围依据；行车及佩戴设备可移动，监控和门铃视野不能无因越界。",
+          "dimension": "carrier_item",
+          "parent": "carrier.04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.1",
+          "label": "直播",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：直播。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.2",
+          "label": "视频通话",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：视频通话。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.3",
+          "label": "远程会议",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：远程会议。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.05.4",
+          "label": "现场连线",
+          "body": "明确信息延迟、收听与观看范围；通话之外事件不能自动被另一端知道；本次画面来源：现场连线。",
+          "dimension": "carrier_item",
+          "parent": "carrier.05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.1",
+          "label": "聊天界面",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：聊天界面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.2",
+          "label": "电脑桌面",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：电脑桌面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.3",
+          "label": "手机操作",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：手机操作。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.06.4",
+          "label": "邮件与数字资料",
+          "body": "屏幕信息必须可读且推动剧情；避免大段文字淹没故事，不自动转成TT字幕开关；本次画面来源：邮件与数字资料。",
+          "dimension": "carrier_item",
+          "parent": "carrier.06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.1",
+          "label": "新闻报道",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：新闻报道。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.2",
+          "label": "街头采访",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：街头采访。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.3",
+          "label": "发布会",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：发布会。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.4",
+          "label": "节目片段",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：节目片段。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.07.5",
+          "label": "广告片",
+          "body": "区分演播/现场/录制；虚构材料不得假装真实新闻或官方背书；本次画面来源：广告片。",
+          "dimension": "carrier_item",
+          "parent": "carrier.07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.1",
+          "label": "旧录像",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：旧录像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.2",
+          "label": "历史影像",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：历史影像。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.3",
+          "label": "照片记录",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：照片记录。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.4",
+          "label": "录音配画面",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：录音配画面。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "carrier.08.5",
+          "label": "档案重构",
+          "body": "已知素材与生成演绎区分，不把虚构影像标成真实档案；本次画面来源：档案重构。",
+          "dimension": "carrier_item",
+          "parent": "carrier.08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "time": {
+      "title": "时间组织",
+      "multi": true,
+      "rows": [
+        {
+          "id": "time.linear",
+          "label": "顺叙",
+          "body": "主要事件按发生先后推进，必要背景以简洁交代呈现",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.reverse",
+          "label": "倒叙",
+          "body": "从后发生的事件回溯前因，明确时间定位及回到当前的节点",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.insert",
+          "label": "插叙",
+          "body": "当前行动中插入相关过去事件，返回后改变理解或选择",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.forward",
+          "label": "预叙",
+          "body": "提前展示未来片段，区分已知结果与角色推测",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.dual",
+          "label": "双时间线",
+          "body": "两个时间段分别推进，交汇增加因果或情绪意义",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.jump",
+          "label": "时间跳跃",
+          "body": "省略间隔但保留关键变化依据，不让关系和物件无因突变",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "time.loop",
+          "label": "循环时间",
+          "body": "交代重复条件，每轮新增信息、代价或行动变化",
+          "dimension": "time",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "info": {
+      "title": "信息揭示",
+      "multi": true,
+      "rows": [
+        {
+          "id": "info.sync",
+          "label": "同步揭示",
+          "body": "观众与锚点角色主要同时获得关键信息",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.ahead",
+          "label": "观众先知",
+          "body": "观众提前得知关键事实，角色受自身信息限制行动",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.behind",
+          "label": "观众后知",
+          "body": "角色可掌握更多信息，揭示前用行为留合理线索",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.hide",
+          "label": "隐瞒后揭示",
+          "body": "暂不展示关键事实，揭示应改变已知事件的理解且前文成立",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.misdirect",
+          "label": "误导后纠正",
+          "body": "提供足以支持误判的信息，后续证据纠正，不靠明显撒谎骗观众",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.puzzle",
+          "label": "线索拼合",
+          "body": "不同线索逐步形成解释，每条关键线索有来源与用途",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "info.unreliable",
+          "label": "不可靠叙述",
+          "body": "明确记忆、立场或欺骗导致的偏差，最终留可辨认依据",
+          "dimension": "info",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "thread": {
+      "title": "线索组织",
+      "multi": true,
+      "rows": [
+        {
+          "id": "thread.single",
+          "label": "单线推进",
+          "body": "围绕一个主要目标组织事件，支线服务主线",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "thread.dual",
+          "label": "双线交叉",
+          "body": "两条线各有目标，交叉带来对照、压力或因果影响",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "thread.converge",
+          "label": "多线汇合",
+          "body": "各线在汇合时互为原因或结果，避免只同场出现",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "thread.parallel",
+          "label": "平行对照",
+          "body": "用相近处境下不同选择或后果形成理解增量",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "thread.versions",
+          "label": "同一事件多版本",
+          "body": "各版本来自不同信息或立场，差异有解释，不任意重写事实",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "thread.nested",
+          "label": "故事套故事",
+          "body": "明确内外故事层级，内部故事影响外层人物行动",
+          "dimension": "thread",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "suspense": {
+      "title": "悬念推进",
+      "multi": true,
+      "rows": [
+        {
+          "id": "suspense.question",
+          "label": "问题追查",
+          "body": "建立可回答的问题，每次追查带来证据、误判或新代价",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "suspense.deadline",
+          "label": "目标倒计时",
+          "body": "明确期限与失败后果，行动改变剩余机会",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "suspense.reveal",
+          "label": "逐层揭密",
+          "body": "答案回应前一问题并打开更深问题，最后影响行动",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "suspense.escalate",
+          "label": "困境升级",
+          "body": "每次应对改变局面，使问题更难或代价更清楚",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "suspense.delay",
+          "label": "延迟揭晓",
+          "body": "延迟期间持续提供有效进展，不靠重复吊胃口填时长",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "suspense.result",
+          "label": "结果先给再追原因",
+          "body": "开头展示结果或险境，后续解释路径并带来新理解",
+          "dimension": "suspense",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "reversal": {
+      "title": "反转机制",
+      "multi": true,
+      "rows": [
+        {
+          "id": "reversal.optional",
+          "label": "不强制反转",
+          "body": "允许自然结局，不为完成标签硬塞反转",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.none",
+          "label": "不要反转",
+          "body": "不以推翻核心认知作高潮；正常信息补充与人物成长仍可发生",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.identity",
+          "label": "身份反转",
+          "body": "身份揭示改变利益或关系，事前有合理迹象",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.motive",
+          "label": "动机反转",
+          "body": "行为不变而真实动机重释因果，不能否定已知事实",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.relation",
+          "label": "关系反转",
+          "body": "同盟敌对或亲疏变化由证据和选择促成",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.cause",
+          "label": "因果反转",
+          "body": "新证据改变谁导致什么的理解，原事件顺序仍成立",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.position",
+          "label": "立场反转",
+          "body": "角色改换立场有触发与代价，不为惊讶而突然变脸",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.rule",
+          "label": "规则反转",
+          "body": "揭示既有规则的隐藏条件，不能临时取消限制",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "reversal.chain",
+          "label": "多次递进反转",
+          "body": "每次翻转新增信息并改变行动，不连续否定前一段制造空转",
+          "dimension": "reversal",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "rhetoric": {
+      "title": "呈现修辞",
+      "multi": true,
+      "rows": [
+        {
+          "id": "rhetoric.contrast",
+          "label": "对照",
+          "body": "用行为、场景或后果的差异突出选择，不重复解释对照意义",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "rhetoric.variation",
+          "label": "重复与变奏",
+          "body": "重复元素在情境或意义上改变，不原样注水",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "rhetoric.payoff",
+          "label": "伏笔回收",
+          "body": "先前细节在后段获得行动价值或新意义",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "rhetoric.symbol",
+          "label": "象征意象",
+          "body": "意象依附具体事件和人物感受，不取代因果交代",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "rhetoric.irony",
+          "label": "情景反讽",
+          "body": "预期与结果形成有原因的反差，后果仍有重量",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "rhetoric.fourth",
+          "label": "打破第四面墙",
+          "body": "人物明确意识到叙事或观众，与普通采访对镜交流区分",
+          "dimension": "rhetoric",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "genre": {
+      "title": "主赛道",
+      "multi": false,
+      "rows": [
+        {
+          "id": "G01",
+          "label": "历史",
+          "body": "围绕有时间背景的利益与行动写故事，制度和物质条件影响选择；区分史实与演绎，不编造史料出处。人物不靠现代知识无因碾压时代。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02",
+          "label": "现实生活",
+          "body": "冲突来自资源、关系和具体处境，角色行动有现实成本；避免用巧合、神奇贵人解决所有问题。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03",
+          "label": "爱情",
+          "body": "双方都应有目标、边界和主动选择；关系变化通过事件与行为成立，拒绝仅靠反复误会拖延。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04",
+          "label": "悬疑",
+          "body": "先设核心问题、真相和信息路径，再分配线索；关键线索在揭示前可感知，误导要有合理来源。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05",
+          "label": "犯罪",
+          "body": "关注动机、证据和后果，违法过程不能变成可执行犯罪教学；避免把真实未定罪者写成罪犯。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06",
+          "label": "惊悚恐怖",
+          "body": "建立威胁规则、预兆与升级，恐惧来自未知、失控或选择成本；不过度依赖突然跳出和重复尖叫。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07",
+          "label": "科幻",
+          "body": "先建立少量可理解的科学或假设规则，展示能力边界、使用代价及其改变人的选择；用冲突解释设定。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08",
+          "label": "奇幻",
+          "body": "建立世界规则、力量来源和代价；奇迹不能随剧情需要无限升级，世界观通过角色行动逐步展示。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09",
+          "label": "武侠",
+          "body": "以技艺、承诺、门派与道义冲突组织故事；战斗有空间、目的与胜负因果，武力不能代替所有人物选择。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10",
+          "label": "仙侠玄幻",
+          "body": "境界、资源和能力须稳定，升级解决旧难题也带来新责任；避免只靠数值等级或无穷新设定推进。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11",
+          "label": "战争",
+          "body": "强调目标、信息、地形、补给与群体代价；作战戏服务人物和局势，不能只连续爆炸或用单人无敌替代战局。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12",
+          "label": "动作冒险",
+          "body": "给主角明确目标、路线和阻力；动作段落必须改变资源、关系或局势，保持空间与伤势连续。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13",
+          "label": "喜剧",
+          "body": "建立人物欲望与现实错位，用信息差、误判和后果升级制造笑点；笑点要影响情节，避免堆段子和羞辱弱者。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14",
+          "label": "成长青春",
+          "body": "人物通过具体行动、失败和关系变化成长；不以一段说教替代转变，不把所有成长等同于成功成名。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15",
+          "label": "家庭亲情",
+          "body": "关系中同时存在爱、责任与利益，变化通过可见行动体现；不把疾病或死亡当作廉价煽情开关。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16",
+          "label": "职场职业",
+          "body": "职位、专业流程、责任和利益真实影响角色选择；专业细节未知时保守处理，不伪装专家权威。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17",
+          "label": "商业创业",
+          "body": "写清客户、成本、现金流、竞争与信用；成功来自行动链和代价，不仅是天才演讲或突然融资。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18",
+          "label": "权谋政治",
+          "body": "每个阵营具有目标、筹码、信息范围与行动成本；反转来自利益和布局，不靠所有配角突然降智。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19",
+          "label": "灾难求生",
+          "body": "威胁、时间与资源限制要明确，灾害规律不能为剧情随意改变；群体协作和道德选择影响存活。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20",
+          "label": "体育竞技",
+          "body": "比赛规则、训练积累、对手策略与身体限制共同决定结果；不能只凭意志突然突破所有差距。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21",
+          "label": "人物传记",
+          "body": "以人生关键选择串起变化，不逐年罗列事迹；真实人物需区分已知事实、争议和戏剧化对白。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22",
+          "label": "纪实知识",
+          "body": "主张与证据层级相匹配，用可理解事件承载知识增量；没有来源的推断标为推断，不虚构引用与统计。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23",
+          "label": "温情疗愈",
+          "body": "情绪恢复来自被理解、行动和关系变化；不把心理困扰用一句鸡汤治好，允许不完美的结局。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24",
+          "label": "复仇逆袭",
+          "body": "受损、目标、阻力和兑现路径清楚；满足感来自能力、证据、选择或资源变化，不能只靠身份亮牌羞辱旁人。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "subgenres": {
+      "title": "细分方向",
+      "multi": true,
+      "rows": [
+        {
+          "id": "G01.1",
+          "label": "王朝兴衰",
+          "body": "以制度变化与人物代价串联关键节点。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G01.2",
+          "label": "古代市井",
+          "body": "以生活成本、交易与人情建立现实压力。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G01.3",
+          "label": "古代商战",
+          "body": "明确本钱、供需、信用与对手策略。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G01.4",
+          "label": "改革变法",
+          "body": "呈现改革收益、受损群体与执行阻力。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G01.5",
+          "label": "历史悬案",
+          "body": "区分可靠记录、争议解释与虚构推演。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G01.6",
+          "label": "历史战争",
+          "body": "以补给、地形、指挥和普通人代价推进。",
+          "dimension": "subgenres",
+          "parent": "G01",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.1",
+          "label": "都市生存",
+          "body": "将住房、时间、收入或机会变为具体选择。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.2",
+          "label": "县城生活",
+          "body": "呈现熟人关系与个人愿望的拉扯。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.3",
+          "label": "乡土乡村",
+          "body": "从土地、家庭、迁移与生活劳动展开。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.4",
+          "label": "家庭伦理",
+          "body": "每方有可理解诉求而非单纯恶人。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.5",
+          "label": "代际冲突",
+          "body": "用行动差异呈现代际价值观。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02.6",
+          "label": "社会观察",
+          "body": "让事件承担观点，不把人物写成评论员。",
+          "dimension": "subgenres",
+          "parent": "G02",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.1",
+          "label": "都市爱情",
+          "body": "平衡亲密关系与现实生活目标。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.2",
+          "label": "校园青春恋爱",
+          "body": "写成长与边界，按角色年龄控制表达。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.3",
+          "label": "破镜重圆",
+          "body": "明确过去破裂原因及今日修复代价。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.4",
+          "label": "契约关系",
+          "body": "让契约利益逐渐转为真实选择。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.5",
+          "label": "身份差异",
+          "body": "让权力与资源差异成为可见阻力。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03.6",
+          "label": "迟来爱情",
+          "body": "用既有责任与新关系的取舍推进。",
+          "dimension": "subgenres",
+          "parent": "G03",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.1",
+          "label": "封闭空间",
+          "body": "限定人物与出入条件并遵守空间规则。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.2",
+          "label": "失踪追踪",
+          "body": "每次发现改变对失踪原因的判断。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.3",
+          "label": "身份迷局",
+          "body": "安排可回看验证的身份矛盾。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.4",
+          "label": "心理悬疑",
+          "body": "主观感知与客观事实区分清楚。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.5",
+          "label": "时间谜局",
+          "body": "固定时间规则并展示约束后果。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04.6",
+          "label": "多视角拼图",
+          "body": "每个视角提供新的事实而非重复剧情。",
+          "dimension": "subgenres",
+          "parent": "G04",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.1",
+          "label": "刑侦破案",
+          "body": "证据链驱动判断，结论有对应依据。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.2",
+          "label": "法庭攻防",
+          "body": "围绕证据可信度与争点推进。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.3",
+          "label": "反诈故事",
+          "body": "揭示风险与受害心理，不提供诈骗操作模板。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.4",
+          "label": "追逃对峙",
+          "body": "让双方资源、风险和选择逐步收紧。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.5",
+          "label": "卧底双面",
+          "body": "每次伪装都增加身份暴露代价。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05.6",
+          "label": "罪案群像",
+          "body": "不同角色的利益交织而非平行流水账。",
+          "dimension": "subgenres",
+          "parent": "G05",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.1",
+          "label": "民俗恐怖",
+          "body": "明确民俗规则与违反后的可见后果。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.2",
+          "label": "心理惊悚",
+          "body": "通过认知不可靠制造压力并保留解释线索。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.3",
+          "label": "生存惊悚",
+          "body": "限制资源、时间和安全区域。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.4",
+          "label": "灵异怪谈",
+          "body": "让超自然现象遵守作品自身规则。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.5",
+          "label": "灾难密室",
+          "body": "环境变化改变逃生策略。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06.6",
+          "label": "日常异化",
+          "body": "从熟悉细节异常逐步扩大威胁。",
+          "dimension": "subgenres",
+          "parent": "G06",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.1",
+          "label": "人工智能",
+          "body": "围绕目标冲突、权限与责任设计事件。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.2",
+          "label": "星际探索",
+          "body": "让距离、通信、资源与未知环境形成阻力。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.3",
+          "label": "时间旅行",
+          "body": "固定改写或闭环规则，不临时换规则救场。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.4",
+          "label": "赛博朋克",
+          "body": "技术便利与权力、身体代价同时呈现。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.5",
+          "label": "末日科幻",
+          "body": "生存资源与群体秩序驱动选择。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07.6",
+          "label": "硬科幻危机",
+          "body": "关键解法提前铺垫并符合已设约束。",
+          "dimension": "subgenres",
+          "parent": "G07",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.1",
+          "label": "东方奇幻",
+          "body": "将神异融入生活秩序与人物关系。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.2",
+          "label": "西方奇幻",
+          "body": "明确种族、阵营与力量限制。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.3",
+          "label": "都市奇幻",
+          "body": "超自然规则与现代日常发生碰撞。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.4",
+          "label": "神话改编",
+          "body": "标记改编设定，保留核心神话冲突或明确重构。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.5",
+          "label": "异世界冒险",
+          "body": "主角能力有代价与适应过程。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08.6",
+          "label": "魔法学院",
+          "body": "学习、竞争与关系共同推动成长。",
+          "dimension": "subgenres",
+          "parent": "G08",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.1",
+          "label": "江湖恩怨",
+          "body": "使旧债与当下选择产生新代价。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.2",
+          "label": "门派争斗",
+          "body": "明确组织利益和个人忠诚冲突。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.3",
+          "label": "武林探案",
+          "body": "线索与武功表现互相验证。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.4",
+          "label": "侠义救援",
+          "body": "救谁、如何救及牺牲什么都要明确。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.5",
+          "label": "朝堂江湖",
+          "body": "连接制度权力与江湖规则。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09.6",
+          "label": "落魄高手",
+          "body": "能力兑现之前铺垫限制与代价。",
+          "dimension": "subgenres",
+          "parent": "G09",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.1",
+          "label": "凡人成长",
+          "body": "让每次提升来自选择、积累和风险。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.2",
+          "label": "宗门竞争",
+          "body": "资源分配与规则执行造成冲突。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.3",
+          "label": "修行代价",
+          "body": "力量提高伴随具体损失或责任。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.4",
+          "label": "群仙权谋",
+          "body": "不同阵营具有清晰目标与筹码。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.5",
+          "label": "宿命情缘",
+          "body": "命运限制必须被人物主动选择回应。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10.6",
+          "label": "异兽世界",
+          "body": "生物能力和生态限制参与剧情。",
+          "dimension": "subgenres",
+          "parent": "G10",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.1",
+          "label": "战役转折",
+          "body": "围绕一个决定局势的行动链展开。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.2",
+          "label": "小队任务",
+          "body": "成员分工和资源限制真实影响结果。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.3",
+          "label": "平民视角",
+          "body": "关注战争对生活与道德选择的改变。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.4",
+          "label": "谍报暗战",
+          "body": "信息可信度与暴露风险共同推进。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.5",
+          "label": "战俘营救",
+          "body": "时间、路径和营救代价构成障碍。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11.6",
+          "label": "战后创伤",
+          "body": "以生活行为呈现影响，不只靠回忆独白。",
+          "dimension": "subgenres",
+          "parent": "G11",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.1",
+          "label": "追逐逃生",
+          "body": "路线变化与资源损耗推动节奏。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.2",
+          "label": "夺宝探险",
+          "body": "线索、环境与对手形成递进障碍。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.3",
+          "label": "极限营救",
+          "body": "被救对象参与选择而非纯道具。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.4",
+          "label": "荒野求生",
+          "body": "环境条件限制解法，不伪造危险生存常识。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.5",
+          "label": "公路冒险",
+          "body": "每站改变人物关系或任务理解。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12.6",
+          "label": "潜入撤离",
+          "body": "任务目标与身份风险逐步交叉。",
+          "dimension": "subgenres",
+          "parent": "G12",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.1",
+          "label": "身份错位",
+          "body": "让错误身份造成连续可追踪的后果。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.2",
+          "label": "误会连锁",
+          "body": "每次误会来自前次行动而非强行不解释。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.3",
+          "label": "职场喜剧",
+          "body": "制度流程与个人欲望发生冲突。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.4",
+          "label": "家庭喜剧",
+          "body": "熟悉关系产生可理解又意外的反应。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.5",
+          "label": "荒诞喜剧",
+          "body": "保持荒诞世界自身逻辑一致。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13.6",
+          "label": "黑色幽默",
+          "body": "严肃后果与不协调反应形成张力。",
+          "dimension": "subgenres",
+          "parent": "G13",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.1",
+          "label": "校园成长",
+          "body": "学习、同伴与自我认知相互作用。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.2",
+          "label": "毕业抉择",
+          "body": "让不同选择都有实际收益与损失。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.3",
+          "label": "友情裂变",
+          "body": "写明共同目标如何变化。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.4",
+          "label": "自我认同",
+          "body": "让角色主动建立边界与选择。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.5",
+          "label": "离乡返乡",
+          "body": "用环境对比呈现身份变化。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14.6",
+          "label": "师徒传承",
+          "body": "技能学习与价值冲突同时发生。",
+          "dimension": "subgenres",
+          "parent": "G14",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.1",
+          "label": "亲子和解",
+          "body": "先呈现冲突根源再让双方改变行动。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.2",
+          "label": "婚姻日常",
+          "body": "以具体分工、承诺与信任推进。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.3",
+          "label": "兄弟姐妹",
+          "body": "共同记忆与资源分配形成张力。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.4",
+          "label": "养老照护",
+          "body": "呈现照护成本与被照护者主体性。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.5",
+          "label": "重组家庭",
+          "body": "建立边界与信任的具体过程。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15.6",
+          "label": "跨代家史",
+          "body": "以关键物件或决定连接不同代际。",
+          "dimension": "subgenres",
+          "parent": "G15",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.1",
+          "label": "办公室博弈",
+          "body": "明确任务归属、评价权和信息差。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.2",
+          "label": "专业救援",
+          "body": "体现协作、责任与高压判断。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.3",
+          "label": "医疗职业",
+          "body": "故事不代替诊疗建议，避免编造治疗效果。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.4",
+          "label": "法律职业",
+          "body": "情节围绕具体争点，不把虚构程序当法律事实。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.5",
+          "label": "教育职业",
+          "body": "学生与教师都有主动性和边界。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16.6",
+          "label": "服务行业",
+          "body": "顾客、劳动者与经营方都有具体约束。",
+          "dimension": "subgenres",
+          "parent": "G16",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.1",
+          "label": "白手起家",
+          "body": "从有限资源与第一个有效交易起步。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.2",
+          "label": "企业竞争",
+          "body": "竞争手段须与组织能力匹配。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.3",
+          "label": "家族企业",
+          "body": "控制权、亲情和经营目标交叉。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.4",
+          "label": "小店经营",
+          "body": "客流、库存、服务与口碑进入情节。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.5",
+          "label": "产品创新",
+          "body": "需求验证与生产限制构成阻力。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17.6",
+          "label": "商业骗局识破",
+          "body": "重点在证据和风险识别而非教学作恶。",
+          "dimension": "subgenres",
+          "parent": "G17",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.1",
+          "label": "宫廷博弈",
+          "body": "身份制度限制人物行动。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.2",
+          "label": "继承纷争",
+          "body": "合法性、能力与联盟共同影响结果。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.3",
+          "label": "组织夺权",
+          "body": "控制资源和规则比口头威胁更重要。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.4",
+          "label": "外交谈判",
+          "body": "各方底线与可交换筹码明确。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.5",
+          "label": "地方治理",
+          "body": "政策收益与执行阻力同时呈现。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18.6",
+          "label": "多方联盟",
+          "body": "盟友变化有利益原因和前置信号。",
+          "dimension": "subgenres",
+          "parent": "G18",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.1",
+          "label": "自然灾害",
+          "body": "环境变化连续，避免错误救灾操作示范。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.2",
+          "label": "公共危机",
+          "body": "信息不确定与组织响应共同制造压力。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.3",
+          "label": "海上求生",
+          "body": "空间、天气和资源限制构成冲突。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.4",
+          "label": "太空求生",
+          "body": "生命保障与通信限制推动选择。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.5",
+          "label": "孤岛困境",
+          "body": "群体秩序随资源与信任变化。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19.6",
+          "label": "城市撤离",
+          "body": "路线拥堵、关系牵挂和时限相互冲突。",
+          "dimension": "subgenres",
+          "parent": "G19",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.1",
+          "label": "团队竞技",
+          "body": "队员关系与战术选择影响结果。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.2",
+          "label": "个人竞技",
+          "body": "技术弱点与心理压力具体化。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.3",
+          "label": "逆境复出",
+          "body": "伤势和训练代价保持连续。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.4",
+          "label": "业余逐梦",
+          "body": "现实责任与训练时间形成阻力。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.5",
+          "label": "电竞对抗",
+          "body": "规则、团队决策与信息范围清晰。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20.6",
+          "label": "教练群像",
+          "body": "培养目标与成绩压力存在真实冲突。",
+          "dimension": "subgenres",
+          "parent": "G20",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.1",
+          "label": "完整人生",
+          "body": "取关键转折并呈现前后因果。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.2",
+          "label": "关键一日",
+          "body": "一日行动折射更长人生背景。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.3",
+          "label": "失败转折",
+          "body": "失败改变策略或价值选择。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.4",
+          "label": "人物双面",
+          "body": "不同处境解释矛盾而非强行洗白。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.5",
+          "label": "师友关系",
+          "body": "关系影响人物选择与代价。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21.6",
+          "label": "普通人小传",
+          "body": "从具体生活行动建立人物价值。",
+          "dimension": "subgenres",
+          "parent": "G21",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.1",
+          "label": "历史解释",
+          "body": "区分史料记录与现代解释。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.2",
+          "label": "科技发明",
+          "body": "围绕难题、试错和应用条件展开。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.3",
+          "label": "社会事件",
+          "body": "核对事件边界，不捏造当事人行为。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.4",
+          "label": "自然观察",
+          "body": "用现象与解释衔接而非堆知识点。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.5",
+          "label": "商业知识",
+          "body": "用案例机制说明，不承诺收益。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22.6",
+          "label": "文化非遗",
+          "body": "让技艺、传承人和生活环境共同出现。",
+          "dimension": "subgenres",
+          "parent": "G22",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.1",
+          "label": "陌生人善意",
+          "body": "善意有具体动作与接受者反应。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.2",
+          "label": "小店相遇",
+          "body": "空间与日常行为促进关系变化。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.3",
+          "label": "宠物陪伴",
+          "body": "尊重动物行为，不只作为催泪道具。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.4",
+          "label": "失落修复",
+          "body": "保留伤痛影响，同时给予行动空间。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.5",
+          "label": "生活重启",
+          "body": "微小改变逐步形成新选择。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23.6",
+          "label": "社区互助",
+          "body": "不同人提供不同资源与理解。",
+          "dimension": "subgenres",
+          "parent": "G23",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.1",
+          "label": "尊严夺回",
+          "body": "用自主选择和有效行动回应轻视。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.2",
+          "label": "能力翻盘",
+          "body": "提前铺垫关键能力及使用限制。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.3",
+          "label": "真相复仇",
+          "body": "证据获得与公布产生实际代价。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.4",
+          "label": "重生改命",
+          "body": "知识优势有边界且改变会引发新后果。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.5",
+          "label": "身份揭示",
+          "body": "身份必须改变利益关系而不只是惊讶表情。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24.6",
+          "label": "困局破除",
+          "body": "将看似无解的限制转化为可行动资源。",
+          "dimension": "subgenres",
+          "parent": "G24",
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "formula": {
+      "title": "结构公式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "F01",
+          "label": "目标与阻力",
+          "body": "建立具体目标，安排行动遇阻、调整策略、付出代价，结果回应初始目标",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F02",
+          "label": "危机倒计时",
+          "body": "给出时限与失败后果，每次行动改变剩余时间或可用方案，高潮在期限内做出关键选择",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F03",
+          "label": "误判翻面",
+          "body": "先提供足以支持初判的信息，再通过新证据改变理解；回看原情节仍成立",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F04",
+          "label": "弱者翻盘",
+          "body": "展示真实弱势、找到被忽略资源、尝试受挫、组合资源兑现，不靠天降身份",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F05",
+          "label": "欲望与代价",
+          "body": "角色获得想要之物后支付未充分理解的代价，最终选择揭示价值观",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F06",
+          "label": "双方信息差",
+          "body": "明确各方知道与不知道的内容，行动因各自判断产生冲突，揭示时改变局势",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F07",
+          "label": "错误胜利",
+          "body": "中段实现表面目标，但暴露更严重问题；最终解决真实问题而非重复打赢一次",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F08",
+          "label": "两难抉择",
+          "body": "两个可行方案各有损失，角色不能无成本兼得，结局展示选择后果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F09",
+          "label": "营救链条",
+          "body": "营救目标明确，障碍依次改变计划，角色关系在协作或牺牲中变化",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F10",
+          "label": "猫鼠攻防",
+          "body": "双方主动行动、互相迫使调整，线索与资源有限，胜负来自策略与代价",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F11",
+          "label": "封闭局面",
+          "body": "限制空间、人员和资源，用关系与信息逐步收紧冲突，解法来自已出现条件",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F12",
+          "label": "三次尝试",
+          "body": "每次尝试改变方法与局势，避免同一失败重复三遍，第三次解决核心误区",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F13",
+          "label": "关系修复",
+          "body": "冲突暴露旧伤，失败沟通后出现行动证据，双方以新的选择建立关系",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F14",
+          "label": "人生转折",
+          "body": "聚焦一个关键选择及前因后果，以少量前后对照呈现人生变化",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F15",
+          "label": "因果回环",
+          "body": "开头物件、话语或动作在结尾获得新意义，回收来自前面行动而非硬凑呼应",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F16",
+          "label": "多线汇合",
+          "body": "各线有独立目标，汇合时互为原因或解法；短时长优先聚焦少量主线",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F17",
+          "label": "逐层揭密",
+          "body": "每个答案解决前一个问题并引出更深问题，最终答案改变人物行动",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F18",
+          "label": "自证陷阱",
+          "body": "角色为证明自己不断采取行动，却加深困局，最后改变自证方式或接受代价",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F19",
+          "label": "荒诞升级",
+          "body": "从一个可理解的小错误开始，后果逐步升级；荒诞仍遵循已建立规则",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F20",
+          "label": "希望与落差",
+          "body": "具体希望建立，受挫原因成立，最终恢复或失去希望都由行动决定",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F21",
+          "label": "对手变盟友",
+          "body": "建立真正对立目标，再出现共同利益与信任代价，合作保留未解决分歧",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F22",
+          "label": "身份与责任",
+          "body": "隐藏或新身份带来权利也带来责任，高潮在身份利益与个人选择间发生",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F23",
+          "label": "反常开场",
+          "body": "开头呈现可见异常，用后续行动给出因果解释，不用无关奇观骗开场",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F24",
+          "label": "结局前置",
+          "body": "先展示明确结果或险境，回溯解释如何到达，并让结尾增加新理解",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F25",
+          "label": "交易博弈",
+          "body": "各方筹码、底线和信息明确，通过交换改变利益关系，成交或破裂有原因",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F26",
+          "label": "团队互补",
+          "body": "不同成员提供不可替代的能力或资源，冲突与协作共同决定结果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F27",
+          "label": "小事见大",
+          "body": "从具体小事件展示更大的关系或制度问题，结尾落在可感知后果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F28",
+          "label": "规则破解",
+          "body": "先建立限制，再让角色利用规则内的条件改变局面，不临时废除规则",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F29",
+          "label": "场景反差",
+          "body": "前后场景在身份、资源或情绪上形成对照，对照必须推动人物理解或选择",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F30",
+          "label": "伏笔兑现",
+          "body": "提前埋入自然可见细节，高潮赋予其行动价值，不把所有细节都做成谜语",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "formula_assist": {
+      "title": "辅助机制",
+      "multi": true,
+      "rows": [
+        {
+          "id": "F01",
+          "label": "目标与阻力",
+          "body": "建立具体目标，安排行动遇阻、调整策略、付出代价，结果回应初始目标",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F02",
+          "label": "危机倒计时",
+          "body": "给出时限与失败后果，每次行动改变剩余时间或可用方案，高潮在期限内做出关键选择",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F03",
+          "label": "误判翻面",
+          "body": "先提供足以支持初判的信息，再通过新证据改变理解；回看原情节仍成立",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F04",
+          "label": "弱者翻盘",
+          "body": "展示真实弱势、找到被忽略资源、尝试受挫、组合资源兑现，不靠天降身份",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F05",
+          "label": "欲望与代价",
+          "body": "角色获得想要之物后支付未充分理解的代价，最终选择揭示价值观",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F06",
+          "label": "双方信息差",
+          "body": "明确各方知道与不知道的内容，行动因各自判断产生冲突，揭示时改变局势",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F07",
+          "label": "错误胜利",
+          "body": "中段实现表面目标，但暴露更严重问题；最终解决真实问题而非重复打赢一次",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F08",
+          "label": "两难抉择",
+          "body": "两个可行方案各有损失，角色不能无成本兼得，结局展示选择后果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F09",
+          "label": "营救链条",
+          "body": "营救目标明确，障碍依次改变计划，角色关系在协作或牺牲中变化",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F10",
+          "label": "猫鼠攻防",
+          "body": "双方主动行动、互相迫使调整，线索与资源有限，胜负来自策略与代价",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F11",
+          "label": "封闭局面",
+          "body": "限制空间、人员和资源，用关系与信息逐步收紧冲突，解法来自已出现条件",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F12",
+          "label": "三次尝试",
+          "body": "每次尝试改变方法与局势，避免同一失败重复三遍，第三次解决核心误区",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F13",
+          "label": "关系修复",
+          "body": "冲突暴露旧伤，失败沟通后出现行动证据，双方以新的选择建立关系",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F14",
+          "label": "人生转折",
+          "body": "聚焦一个关键选择及前因后果，以少量前后对照呈现人生变化",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F15",
+          "label": "因果回环",
+          "body": "开头物件、话语或动作在结尾获得新意义，回收来自前面行动而非硬凑呼应",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F16",
+          "label": "多线汇合",
+          "body": "各线有独立目标，汇合时互为原因或解法；短时长优先聚焦少量主线",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F17",
+          "label": "逐层揭密",
+          "body": "每个答案解决前一个问题并引出更深问题，最终答案改变人物行动",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F18",
+          "label": "自证陷阱",
+          "body": "角色为证明自己不断采取行动，却加深困局，最后改变自证方式或接受代价",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F19",
+          "label": "荒诞升级",
+          "body": "从一个可理解的小错误开始，后果逐步升级；荒诞仍遵循已建立规则",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F20",
+          "label": "希望与落差",
+          "body": "具体希望建立，受挫原因成立，最终恢复或失去希望都由行动决定",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F21",
+          "label": "对手变盟友",
+          "body": "建立真正对立目标，再出现共同利益与信任代价，合作保留未解决分歧",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F22",
+          "label": "身份与责任",
+          "body": "隐藏或新身份带来权利也带来责任，高潮在身份利益与个人选择间发生",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F23",
+          "label": "反常开场",
+          "body": "开头呈现可见异常，用后续行动给出因果解释，不用无关奇观骗开场",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F24",
+          "label": "结局前置",
+          "body": "先展示明确结果或险境，回溯解释如何到达，并让结尾增加新理解",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F25",
+          "label": "交易博弈",
+          "body": "各方筹码、底线和信息明确，通过交换改变利益关系，成交或破裂有原因",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F26",
+          "label": "团队互补",
+          "body": "不同成员提供不可替代的能力或资源，冲突与协作共同决定结果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F27",
+          "label": "小事见大",
+          "body": "从具体小事件展示更大的关系或制度问题，结尾落在可感知后果",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F28",
+          "label": "规则破解",
+          "body": "先建立限制，再让角色利用规则内的条件改变局面，不临时废除规则",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F29",
+          "label": "场景反差",
+          "body": "前后场景在身份、资源或情绪上形成对照，对照必须推动人物理解或选择",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "F30",
+          "label": "伏笔兑现",
+          "body": "提前埋入自然可见细节，高潮赋予其行动价值，不把所有细节都做成谜语",
+          "dimension": "formula",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "fusion": {
+      "title": "融合题材",
+      "multi": true,
+      "rows": [
+        {
+          "id": "G01",
+          "label": "历史",
+          "body": "围绕有时间背景的利益与行动写故事，制度和物质条件影响选择；区分史实与演绎，不编造史料出处。人物不靠现代知识无因碾压时代。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G02",
+          "label": "现实生活",
+          "body": "冲突来自资源、关系和具体处境，角色行动有现实成本；避免用巧合、神奇贵人解决所有问题。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G03",
+          "label": "爱情",
+          "body": "双方都应有目标、边界和主动选择；关系变化通过事件与行为成立，拒绝仅靠反复误会拖延。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G04",
+          "label": "悬疑",
+          "body": "先设核心问题、真相和信息路径，再分配线索；关键线索在揭示前可感知，误导要有合理来源。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G05",
+          "label": "犯罪",
+          "body": "关注动机、证据和后果，违法过程不能变成可执行犯罪教学；避免把真实未定罪者写成罪犯。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G06",
+          "label": "惊悚恐怖",
+          "body": "建立威胁规则、预兆与升级，恐惧来自未知、失控或选择成本；不过度依赖突然跳出和重复尖叫。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G07",
+          "label": "科幻",
+          "body": "先建立少量可理解的科学或假设规则，展示能力边界、使用代价及其改变人的选择；用冲突解释设定。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G08",
+          "label": "奇幻",
+          "body": "建立世界规则、力量来源和代价；奇迹不能随剧情需要无限升级，世界观通过角色行动逐步展示。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G09",
+          "label": "武侠",
+          "body": "以技艺、承诺、门派与道义冲突组织故事；战斗有空间、目的与胜负因果，武力不能代替所有人物选择。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G10",
+          "label": "仙侠玄幻",
+          "body": "境界、资源和能力须稳定，升级解决旧难题也带来新责任；避免只靠数值等级或无穷新设定推进。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G11",
+          "label": "战争",
+          "body": "强调目标、信息、地形、补给与群体代价；作战戏服务人物和局势，不能只连续爆炸或用单人无敌替代战局。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G12",
+          "label": "动作冒险",
+          "body": "给主角明确目标、路线和阻力；动作段落必须改变资源、关系或局势，保持空间与伤势连续。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G13",
+          "label": "喜剧",
+          "body": "建立人物欲望与现实错位，用信息差、误判和后果升级制造笑点；笑点要影响情节，避免堆段子和羞辱弱者。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G14",
+          "label": "成长青春",
+          "body": "人物通过具体行动、失败和关系变化成长；不以一段说教替代转变，不把所有成长等同于成功成名。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G15",
+          "label": "家庭亲情",
+          "body": "关系中同时存在爱、责任与利益，变化通过可见行动体现；不把疾病或死亡当作廉价煽情开关。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G16",
+          "label": "职场职业",
+          "body": "职位、专业流程、责任和利益真实影响角色选择；专业细节未知时保守处理，不伪装专家权威。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G17",
+          "label": "商业创业",
+          "body": "写清客户、成本、现金流、竞争与信用；成功来自行动链和代价，不仅是天才演讲或突然融资。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G18",
+          "label": "权谋政治",
+          "body": "每个阵营具有目标、筹码、信息范围与行动成本；反转来自利益和布局，不靠所有配角突然降智。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G19",
+          "label": "灾难求生",
+          "body": "威胁、时间与资源限制要明确，灾害规律不能为剧情随意改变；群体协作和道德选择影响存活。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G20",
+          "label": "体育竞技",
+          "body": "比赛规则、训练积累、对手策略与身体限制共同决定结果；不能只凭意志突然突破所有差距。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G21",
+          "label": "人物传记",
+          "body": "以人生关键选择串起变化，不逐年罗列事迹；真实人物需区分已知事实、争议和戏剧化对白。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G22",
+          "label": "纪实知识",
+          "body": "主张与证据层级相匹配，用可理解事件承载知识增量；没有来源的推断标为推断，不虚构引用与统计。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G23",
+          "label": "温情疗愈",
+          "body": "情绪恢复来自被理解、行动和关系变化；不把心理困扰用一句鸡汤治好，允许不完美的结局。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "G24",
+          "label": "复仇逆袭",
+          "body": "受损、目标、阻力和兑现路径清楚；满足感来自能力、证据、选择或资源变化，不能只靠身份亮牌羞辱旁人。",
+          "dimension": "genre",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "conflict": {
+      "title": "主要冲突",
+      "multi": true,
+      "rows": [
+        {
+          "id": "conflict.01",
+          "label": "人与人",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：人与人。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.02",
+          "label": "人与制度",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：人与制度。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.03",
+          "label": "人与环境",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：人与环境。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.04",
+          "label": "人与技术",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：人与技术。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.05",
+          "label": "人与自我",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：人与自我。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.06",
+          "label": "命运压力",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：命运压力。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "conflict.07",
+          "label": "价值两难",
+          "body": "落实为有成本的具体阻力、行动与取舍，不仅贴标签 本次采用：价值两难。",
+          "dimension": "conflict",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "ending": {
+      "title": "结尾方式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "ending.01",
+          "label": "闭合结局",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：闭合结局。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "ending.02",
+          "label": "情绪余波",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：情绪余波。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "ending.03",
+          "label": "续集悬念",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：续集悬念。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "ending.04",
+          "label": "开放结局",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：开放结局。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "ending.05",
+          "label": "反问留白",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：反问留白。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "ending.06",
+          "label": "行动号召",
+          "body": "事件结局回应主要目标；商业行动号召引用唯一商业收尾，不强制购买 本次采用：行动号召。",
+          "dimension": "ending",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "subject": {
+      "title": "叙事对象",
+      "multi": false,
+      "rows": [
+        {
+          "id": "subject.01",
+          "label": "人生",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：人生。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.02",
+          "label": "战争",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：战争。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.03",
+          "label": "案件",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：案件。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.04",
+          "label": "交易",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：交易。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.05",
+          "label": "营救",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：营救。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.06",
+          "label": "家庭",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：家庭。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.07",
+          "label": "城市",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：城市。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.08",
+          "label": "发明",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：发明。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.09",
+          "label": "关系",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：关系。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.10",
+          "label": "文明",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：文明。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "subject.11",
+          "label": "群像",
+          "body": "短时长聚焦关键转折或局部事件，不从出生到死亡流水账 本次采用：群像。",
+          "dimension": "subject",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "opening": {
+      "title": "开场方式",
+      "multi": false,
+      "rows": [
+        {
+          "id": "opening.01",
+          "label": "台词冲击",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：台词冲击。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "opening.02",
+          "label": "行动突发",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：行动突发。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "opening.03",
+          "label": "视觉异常",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：视觉异常。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "opening.04",
+          "label": "结局前置",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：结局前置。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "opening.05",
+          "label": "问题悬念",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：问题悬念。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "opening.06",
+          "label": "渐入",
+          "body": "尽早建立与主线有关的吸引点，依作品形式安排，不强制三秒惊吓 本次采用：渐入。",
+          "dimension": "opening",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "climax": {
+      "title": "高潮事件",
+      "multi": false,
+      "rows": [
+        {
+          "id": "climax.01",
+          "label": "证据到场",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：证据到场。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.02",
+          "label": "关键行动",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：关键行动。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.03",
+          "label": "公开揭示",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：公开揭示。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.04",
+          "label": "关系站队",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：关系站队。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.05",
+          "label": "资源反用",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：资源反用。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.06",
+          "label": "承诺兑现",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：承诺兑现。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.07",
+          "label": "代价承担",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：代价承担。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.08",
+          "label": "主动放弃",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：主动放弃。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "climax.09",
+          "label": "集体行动",
+          "body": "高潮必须由具体行动改变局面，不把全场震惊或沉默当事件完成 本次采用：集体行动。",
+          "dimension": "climax",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "protagonist": {
+      "title": "主角类型",
+      "multi": false,
+      "rows": [
+        {
+          "id": "protagonist.01",
+          "label": "普通人",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：普通人。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.02",
+          "label": "专业者",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：专业者。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.03",
+          "label": "弱势者",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：弱势者。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.04",
+          "label": "强势者",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：强势者。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.05",
+          "label": "边缘者",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：边缘者。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.06",
+          "label": "反英雄",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：反英雄。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.07",
+          "label": "群体主角",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：群体主角。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "protagonist.08",
+          "label": "非人主体",
+          "body": "主角有具体目标与主动选择；能力、资源和弱点影响行动 本次采用：非人主体。",
+          "dimension": "protagonist",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "relations": {
+      "title": "人物关系",
+      "multi": true,
+      "rows": [
+        {
+          "id": "relations.01",
+          "label": "亲子",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：亲子。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.02",
+          "label": "夫妻",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：夫妻。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.03",
+          "label": "恋人",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：恋人。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.04",
+          "label": "师徒",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：师徒。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.05",
+          "label": "朋友",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：朋友。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.06",
+          "label": "同事",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：同事。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.07",
+          "label": "上下级",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：上下级。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.08",
+          "label": "竞争者",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：竞争者。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.09",
+          "label": "陌生人",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：陌生人。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "relations.10",
+          "label": "共同体",
+          "body": "关系变化有事件依据，双方各有诉求与边界 本次采用：共同体。",
+          "dimension": "relations",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "change": {
+      "title": "人物变化",
+      "multi": false,
+      "rows": [
+        {
+          "id": "change.01",
+          "label": "成长",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：成长。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.02",
+          "label": "觉醒",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：觉醒。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.03",
+          "label": "堕落",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：堕落。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.04",
+          "label": "和解",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：和解。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.05",
+          "label": "坚守",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：坚守。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.06",
+          "label": "放下",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：放下。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.07",
+          "label": "身份重建",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：身份重建。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "change.08",
+          "label": "无明显变化",
+          "body": "转变由选择、失败和后果体现，避免一段说教替代变化 本次采用：无明显变化。",
+          "dimension": "change",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "motives": {
+      "title": "核心动机",
+      "multi": true,
+      "rows": [
+        {
+          "id": "motives.01",
+          "label": "生存",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：生存。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.02",
+          "label": "归属",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：归属。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.03",
+          "label": "尊严",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：尊严。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.04",
+          "label": "责任",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：责任。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.05",
+          "label": "利益",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：利益。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.06",
+          "label": "求知",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：求知。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.07",
+          "label": "自由",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：自由。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.08",
+          "label": "保护",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：保护。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "motives.09",
+          "label": "复仇",
+          "body": "动机促成具体选择，代价真实影响行动 本次采用：复仇。",
+          "dimension": "motives",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "intensity": {
+      "title": "情绪强度",
+      "multi": false,
+      "rows": [
+        {
+          "id": "intensity.01",
+          "label": "克制",
+          "body": "情绪从动作、关系与后果表达；不能只堆情绪形容词 本次采用：克制。",
+          "dimension": "intensity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "intensity.02",
+          "label": "适中",
+          "body": "情绪从动作、关系与后果表达；不能只堆情绪形容词 本次采用：适中。",
+          "dimension": "intensity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "intensity.03",
+          "label": "强烈",
+          "body": "情绪从动作、关系与后果表达；不能只堆情绪形容词 本次采用：强烈。",
+          "dimension": "intensity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "payoff": {
+      "title": "爽点机制",
+      "multi": true,
+      "rows": [
+        {
+          "id": "payoff.01",
+          "label": "能力兑现",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：能力兑现。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.02",
+          "label": "真相揭露",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：真相揭露。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.03",
+          "label": "尊严夺回",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：尊严夺回。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.04",
+          "label": "关系变化",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：关系变化。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.05",
+          "label": "困局破除",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：困局破除。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.06",
+          "label": "正义实现",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：正义实现。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "payoff.07",
+          "label": "资源重组",
+          "body": "先铺垫限制和资源，通过能力、证据或选择兑现；不靠身份亮牌羞辱 本次采用：资源重组。",
+          "dimension": "payoff",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "emotion": {
+      "title": "情绪标签",
+      "multi": true,
+      "rows": [
+        {
+          "id": "emotion.01",
+          "label": "爽感",
+          "body": "先建立压迫或困局，再以能力、选择或证据带来可见兑现",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.02",
+          "label": "悲伤",
+          "body": "通过失去的具体事物、未完成行动与人物反应表达，不堆哭泣描写",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.03",
+          "label": "可怜与共情",
+          "body": "让观众理解角色处境，同时保留角色的选择与尊严",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.04",
+          "label": "愤怒",
+          "body": "给出可理解的越界或损害，愤怒改变行动而非持续高声喊叫",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.05",
+          "label": "紧张",
+          "body": "明确风险和不确定性，逐步减少可用方案",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.06",
+          "label": "恐惧",
+          "body": "威胁在可感知细节中升级，角色尝试应对而非只惊叫",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.07",
+          "label": "温暖",
+          "body": "用具体照顾、理解和互助行为表达，不只说“你很重要”",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.08",
+          "label": "甜感",
+          "body": "通过相互注意、主动选择与细节回报建立亲密",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.09",
+          "label": "遗憾",
+          "body": "展示曾经可选而未选的路径，以及今日无法轻易补回的代价",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.10",
+          "label": "怀旧",
+          "body": "用时代生活细节连接当下情绪，不堆品牌名或旧物清单",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.11",
+          "label": "孤独",
+          "body": "通过交流落空、空间与行动节奏表现，不反复自述孤独",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.12",
+          "label": "羞耻",
+          "body": "呈现自我形象与他人目光的冲突，不把羞辱弱者作为娱乐核心",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.13",
+          "label": "嫉妒",
+          "body": "让比较触及角色未满足的欲望，并影响其选择",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.14",
+          "label": "内疚",
+          "body": "过去行为与当前补偿行动形成联系，补偿不自动获得原谅",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.15",
+          "label": "希望",
+          "body": "用新的可行行动或关系支持打开前路，不靠空泛祝福",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.16",
+          "label": "绝望",
+          "body": "展示方案失效和失去控制的过程，避免无因堆砌惨事",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.17",
+          "label": "惊讶",
+          "body": "新信息改变人物对目标或关系的判断",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.18",
+          "label": "荒诞",
+          "body": "角色认真对待不协调局面，后果仍有因果",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.19",
+          "label": "热血",
+          "body": "目标、阻力与付出明确，关键行动体现决心",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.20",
+          "label": "压迫",
+          "body": "资源、规则或空间限制产生持续压力，不只写低沉背景音乐",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.21",
+          "label": "释然",
+          "body": "角色放下某种执念并做出新的可见选择",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.22",
+          "label": "敬畏",
+          "body": "通过规模、未知或复杂性影响人物判断，不靠形容词堆砌",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.23",
+          "label": "好奇",
+          "body": "提出可回答的问题，逐步给予信息回报",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "emotion.24",
+          "label": "黑色幽默",
+          "body": "严肃后果与人物反应之间产生不协调，保留后果重量",
+          "dimension": "emotion",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "density": {
+      "title": "语言密度",
+      "multi": false,
+      "rows": [
+        {
+          "id": "density.01",
+          "label": "留白为主",
+          "body": "语言密度指发声占时软预算；动作和语言重叠不重复计算，不强制变更语速 本次采用：留白为主。 初始发声占时建议20%—40%；尚未成片校准。",
+          "dimension": "density",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "density.02",
+          "label": "均衡",
+          "body": "语言密度指发声占时软预算；动作和语言重叠不重复计算，不强制变更语速 本次采用：均衡。 初始发声占时建议40%—65%；尚未成片校准。",
+          "dimension": "density",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "density.03",
+          "label": "语言密集",
+          "body": "语言密度指发声占时软预算；动作和语言重叠不重复计算，不强制变更语速 本次采用：语言密集。 初始发声占时建议65%—85%；尚未成片校准。",
+          "dimension": "density",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "speed": {
+      "title": "语速",
+      "multi": false,
+      "rows": [
+        {
+          "id": "speed.01",
+          "label": "舒缓",
+          "body": "采用包含通常句内停顿的有效语速，仅中文初始参数，非行业结论 本次采用：舒缓。 中文初始规划3汉字/秒，不暗中升速。",
+          "dimension": "speed",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "speed.02",
+          "label": "自然",
+          "body": "采用包含通常句内停顿的有效语速，仅中文初始参数，非行业结论 本次采用：自然。 中文初始规划4汉字/秒，不暗中升速。",
+          "dimension": "speed",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "speed.03",
+          "label": "快速",
+          "body": "采用包含通常句内停顿的有效语速，仅中文初始参数，非行业结论 本次采用：快速。 中文初始规划5汉字/秒，不暗中升速。",
+          "dimension": "speed",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "dialogue_style": {
+      "title": "语言风格",
+      "multi": true,
+      "rows": [
+        {
+          "id": "language_style.01",
+          "label": "自然口语",
+          "body": "按人物身份和关系使用自然句法，避免所有人同样文绉绉",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.02",
+          "label": "机锋",
+          "body": "回应对方真实话语并推进博弈，不连续输出互不相关金句",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.03",
+          "label": "讽刺",
+          "body": "让字面与意图产生差异，对手要有反应或行动后果",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.04",
+          "label": "克制",
+          "body": "减少直接宣告情绪，借停顿、回避与行动承载",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.05",
+          "label": "质问",
+          "body": "问题包含具体矛盾或证据，不重复“为什么”",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.06",
+          "label": "争吵",
+          "body": "每轮争执提供新信息、改变立场或升级代价",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.07",
+          "label": "温柔",
+          "body": "关心落到具体需要，避免过量安慰套话",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.08",
+          "label": "冷幽默",
+          "body": "以平静表达与处境落差形成笑点",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "language_style.09",
+          "label": "粗口",
+          "body": "根据角色、受众和强度少量使用，不能用辱骂代替冲突设计；避免针对受保护群体的贬损",
+          "dimension": "dialogue_style",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "profanity": {
+      "title": "粗口强度",
+      "multi": false,
+      "rows": [
+        {
+          "id": "profanity.01",
+          "label": "不用",
+          "body": "按人物、受众和强度控制；不得用辱骂代替冲突或贬损受保护群体 本次采用：不用。",
+          "dimension": "profanity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "profanity.02",
+          "label": "少量",
+          "body": "按人物、受众和强度控制；不得用辱骂代替冲突或贬损受保护群体 本次采用：少量。",
+          "dimension": "profanity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "profanity.03",
+          "label": "明显",
+          "body": "按人物、受众和强度控制；不得用辱骂代替冲突或贬损受保护群体 本次采用：明显。",
+          "dimension": "profanity",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "tone": {
+      "title": "叙事气质",
+      "multi": false,
+      "rows": [
+        {
+          "id": "tone.01",
+          "label": "写实",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：写实。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.02",
+          "label": "浪漫",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：浪漫。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.03",
+          "label": "荒诞",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：荒诞。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.04",
+          "label": "冷峻",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：冷峻。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.05",
+          "label": "热血",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：热血。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.06",
+          "label": "黑色幽默",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：黑色幽默。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.07",
+          "label": "诗意",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：诗意。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.08",
+          "label": "纪实",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：纪实。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.09",
+          "label": "史诗",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：史诗。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "tone.10",
+          "label": "轻松",
+          "body": "气质影响事件呈现和叙述距离，不改写事实仍当史实，不替代视角载体 本次采用：轻松。",
+          "dimension": "tone",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "visual": {
+      "title": "画面表达",
+      "multi": true,
+      "rows": [
+        {
+          "id": "visual.01",
+          "label": "简洁动作",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：简洁动作。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.02",
+          "label": "表演细节",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：表演细节。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.03",
+          "label": "空间关系",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：空间关系。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.04",
+          "label": "视觉奇观",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：视觉奇观。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.05",
+          "label": "生活质感",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：生活质感。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.06",
+          "label": "环境氛围",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：环境氛围。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "visual.07",
+          "label": "符号意象",
+          "body": "通过可执行动作、可见环境和空间连续表达，不用标签替代事件因果 本次采用：符号意象。",
+          "dimension": "visual",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "audience": {
+      "title": "目标受众",
+      "multi": false,
+      "rows": [
+        {
+          "id": "audience.01",
+          "label": "通用",
+          "body": "按作品目标受众调整表达，不推断操作者年龄 本次采用：通用。",
+          "dimension": "audience",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "audience.02",
+          "label": "青少年",
+          "body": "按作品目标受众调整表达，不推断操作者年龄 本次采用：青少年。",
+          "dimension": "audience",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "audience.03",
+          "label": "成人",
+          "body": "按作品目标受众调整表达，不推断操作者年龄 本次采用：成人。",
+          "dimension": "audience",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "audience.04",
+          "label": "家庭",
+          "body": "按作品目标受众调整表达，不推断操作者年龄 本次采用：家庭。",
+          "dimension": "audience",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "boundaries": {
+      "title": "内容边界",
+      "multi": true,
+      "rows": [
+        {
+          "id": "boundaries.01",
+          "label": "避免血腥",
+          "body": "遵守明确内容边界，不静默牺牲另一显式要求 本次采用：避免血腥。",
+          "dimension": "boundaries",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "boundaries.02",
+          "label": "避免粗口",
+          "body": "遵守明确内容边界，不静默牺牲另一显式要求 本次采用：避免粗口。",
+          "dimension": "boundaries",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "boundaries.03",
+          "label": "避免性描写",
+          "body": "遵守明确内容边界，不静默牺牲另一显式要求 本次采用：避免性描写。",
+          "dimension": "boundaries",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "boundaries.04",
+          "label": "避免恐怖",
+          "body": "遵守明确内容边界，不静默牺牲另一显式要求 本次采用：避免恐怖。",
+          "dimension": "boundaries",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "borrow": {
+      "title": "借鉴部分",
+      "multi": true,
+      "rows": [
+        {
+          "id": "borrow.01",
+          "label": "开场",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：开场。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.02",
+          "label": "冲突机制",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：冲突机制。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.03",
+          "label": "高潮构造",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：高潮构造。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.04",
+          "label": "情绪曲线",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：情绪曲线。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.05",
+          "label": "节奏",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：节奏。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.06",
+          "label": "视角",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：视角。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.07",
+          "label": "气质",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：气质。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "borrow.08",
+          "label": "对白技巧",
+          "body": "参考仅为资料；借鉴结构与方法，创作新的具体事件和表达，不照搬高潮台词 本次采用：对白技巧。",
+          "dimension": "borrow",
+          "parent": null,
+          "selection": "multiple",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "strategy": {
+      "title": "商业子策略",
+      "multi": false,
+      "rows": [
+        {
+          "id": "strategy.01",
+          "label": "场景植入",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：场景植入。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.02",
+          "label": "痛点解决",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：痛点解决。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.03",
+          "label": "反差误会",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：反差误会。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.04",
+          "label": "关系故事",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：关系故事。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.05",
+          "label": "体验探索",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：体验探索。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.06",
+          "label": "知识融入",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：知识融入。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.07",
+          "label": "氛围展示",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：氛围展示。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "strategy.08",
+          "label": "口碑演绎",
+          "body": "商业对象自然参与目标与行动，只采用提供的真实事实，不虚构体验和功效 本次采用：口碑演绎。",
+          "dimension": "strategy",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    },
+    "cta": {
+      "title": "商业收尾",
+      "multi": false,
+      "rows": [
+        {
+          "id": "cta.01",
+          "label": "自然结束",
+          "body": "商业收尾与事件结局分别管理；不强制购买或到店，未知预约与交易条件不编造 本次采用：自然结束。",
+          "dimension": "cta",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "cta.02",
+          "label": "提及名称",
+          "body": "商业收尾与事件结局分别管理；不强制购买或到店，未知预约与交易条件不编造 本次采用：提及名称。",
+          "dimension": "cta",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "cta.03",
+          "label": "到店邀请",
+          "body": "商业收尾与事件结局分别管理；不强制购买或到店，未知预约与交易条件不编造 本次采用：到店邀请。",
+          "dimension": "cta",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        },
+        {
+          "id": "cta.04",
+          "label": "了解更多",
+          "body": "商业收尾与事件结局分别管理；不强制购买或到店，未知预约与交易条件不编造 本次采用：了解更多。",
+          "dimension": "cta",
+          "parent": null,
+          "selection": "single",
+          "applicable": "script",
+          "version": "2026-10-01"
+        }
+      ]
+    }
+  }
+}

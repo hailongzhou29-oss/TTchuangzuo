@@ -102,10 +102,11 @@ class FactService:
     def _version(con, row):
         con.execute('INSERT INTO fact_versions VALUES(?,?,?,?,?)', (new_id(), row['id'], row['version'], json.dumps(row, ensure_ascii=False), now()))
 
-    def set_state(self, fact_id, state):
+    def set_state(self, fact_id, state, expected_version=None):
         if state not in STATES:
             raise ValueError('未知事实状态')
         old = self.get(fact_id)
+        if expected_version is not None and old['version']!=expected_version: raise ValueError('事实已更新，请刷新后重新核对')
         if state == 'confirmed' and old['source_document_id']:
             self._validate_source(old['source_document_id'], old['source_revision'], old['source_block_id'], old['evidence'], current=True)
         if state == old['state']:
@@ -123,11 +124,12 @@ class FactService:
                 if 'fact:' + fact_id in dependencies:
                     con.execute('UPDATE cache_entries SET stale=1 WHERE id=?', (cached['id'],))
 
-    def revise(self, fact_id, content, valid_from=None, valid_to=None):
+    def revise(self, fact_id, content, valid_from=None, valid_to=None, expected_version=None):
         self.check_interval(valid_from, valid_to)
         if not isinstance(content, str) or not content.strip() or len(content) > 4000:
             raise ValueError('事实内容为空或过长')
         old = self.get(fact_id)
+        if expected_version is not None and old['version']!=expected_version: raise ValueError('事实已更新，请刷新后重新核对')
         row = dict(old, content=content.strip(), state='candidate', valid_from=valid_from, valid_to=valid_to,
                    source_document_id=None, source_revision=None, source_block_id=None, evidence=None,
                    version=old['version'] + 1, updated=now())
@@ -153,7 +155,13 @@ class FactService:
         self.store.set_setting('timeline:' + document_id, position)
 
     def active(self, document_id):
-        return self.facts('confirmed', at=self.timeline(document_id))
+        return [fact for fact in self.facts('confirmed', at=self.timeline(document_id)) if self.source_current(fact)]
+
+    def source_current(self,fact):
+        if not fact.get('source_document_id'): return True
+        try: self._validate_source(fact['source_document_id'],fact['source_revision'],fact['source_block_id'],fact['evidence'],current=True)
+        except (ValueError,KeyError): return False
+        return True
 
     def versions(self, fact_id):
         self.get(fact_id)

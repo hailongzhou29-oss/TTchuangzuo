@@ -14,6 +14,7 @@ def style(theme='清透白',font_size=18):
     c=theme_tokens(theme)
     variant={'清透白':'light','石墨紫':'dark','暖纸色':'paper'}[theme]
     arrow=(Path(__file__).resolve().parents[2]/'resources'/'icons'/('v2-down-'+variant+'.svg')).as_posix()
+    check=(Path(__file__).resolve().parents[2]/'resources'/'icons'/('checkbox-check-'+variant+'.svg')).as_posix()
     return f'''
  QWidget {{background:{c['window']};color:{c['text']};font-family:"{ui_font().family()}";font-size:{TYPE_SIZES['control']}px;}}
  QLabel {{background:transparent;}} QLabel#muted {{color:{c['muted']};font-size:{TYPE_SIZES['caption']}px;}}
@@ -96,7 +97,15 @@ def style(theme='清透白',font_size=18):
  QTabBar::tab:selected {{background:{c['soft']};border-bottom-color:{c['accent']};color:{c['accent']};font-weight:600;}}
  QTabBar::tab:hover {{background:{c['soft']};}}
  QMenu {{background:{c['panel']};border:1px solid {c['border']};padding:4px;}} QMenu::item {{padding:8px 18px;}} QMenu::item:selected {{background:{c['soft']};}}
- QCheckBox {{background:transparent;spacing:6px;}} QSplitter::handle {{background:{c['border']};width:2px;}}
+ QCheckBox {{background:transparent;spacing:8px;}}
+ QCheckBox::indicator {{width:18px;height:18px;border:1px solid {c['muted']};border-radius:4px;background:{c['panel']};}}
+ QCheckBox::indicator:unchecked:hover {{border-color:{c['accent']};background:{c['soft']};}}
+ QCheckBox::indicator:checked {{border-color:{c['accent']};background:{c['accent']};image:url("{check}");}}
+ QCheckBox::indicator:checked:hover {{border-color:{c['text']};}}
+ QCheckBox::indicator:unchecked:disabled {{background:{c['window']};border-color:{c['border']};}}
+ QCheckBox::indicator:checked:disabled {{background:{c['muted']};border-color:{c['muted']};}}
+ QCheckBox:focus {{color:{c['accent']};}}
+ QSplitter::handle {{background:{c['border']};width:10px;}} QSplitter::handle:hover {{background:{c['soft']};}}
  QToolTip {{background:{c['panel']};color:{c['text']};border:1px solid {c['border']};padding:6px;}}
  QFrame#choicePopup {{background:transparent;border:0;}}
  QFrame#titleBar {{background:{c['panel']};border-bottom:1px solid {c['border']};}}

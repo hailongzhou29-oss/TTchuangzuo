@@ -1,5 +1,5 @@
 """TT 创作助手：独立的源码开发版。"""
-__version__='2.1.0-dev.1'
+__version__='2.1.0-dev.2'
 import os as _os
 import sys as _sys
 from pathlib import Path as _Path

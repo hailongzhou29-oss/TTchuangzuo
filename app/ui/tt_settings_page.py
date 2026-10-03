@@ -114,7 +114,9 @@ class SettingsPage(QWidget,TTSettingsWidgets):
         self.theme_selector.setCurrentIndex(self.theme_selector.findData(self.owner.theme)); self.theme_selector.currentIndexChanged.connect(lambda _:self.owner.set_theme(self.theme_selector.currentData())); theme_row.addWidget(self.theme_selector,1); layout.addLayout(theme_row)
         motion_row=QHBoxLayout(); motion_row.addWidget(label('界面动态')); self.motion_selector=QComboBox(); self.motion_selector.addItem('标准动态',False); self.motion_selector.addItem('减少动态',True); self.motion_selector.setCurrentIndex(1 if self.owner.motion.reduced() else 0); motion_row.addWidget(self.motion_selector,1); layout.addLayout(motion_row); self.motion_selector.currentIndexChanged.connect(self.set_motion_preference)
         sound_row=QHBoxLayout(); sound_row.addWidget(label('任务提示音')); self.sound_toggle=QCheckBox('任务完成时播放'); self.sound_toggle.setChecked(self.owner.options.get('task_completion_sound',True)); sound_row.addWidget(self.sound_toggle,1); self.sound_preview=button('试听',lambda:self.owner.play_task_sound(force=True)); sound_row.addWidget(self.sound_preview); layout.addLayout(sound_row); self.sound_toggle.toggled.connect(self.set_sound_preference)
+        sound_files=QHBoxLayout(); sound_files.addWidget(label('提示音文件')); self.sound_selector=QComboBox(); sound_files.addWidget(self.sound_selector,1); sound_files.addWidget(button('打开音频文件夹',self.open_audio_folder)); sound_files.addWidget(button('刷新',self.refresh_audio_files,quiet=True)); layout.addLayout(sound_files); self.refresh_audio_files(); self.sound_selector.currentIndexChanged.connect(self.set_audio_preference)
         layout.addWidget(label('模型列表读取、连接检测和写作任务完成时提示；关闭后不播放。','muted'))
+        layout.addWidget(label('音频放在软件 resources/audio/notifications 文件夹。可加入或替换 WAV 文件，点击刷新后选择，试听不受开关影响。','muted'))
         layout.addWidget(label('文件与存储','sectionHeading')); form=QFormLayout(); layout.addLayout(form); self.path_fields={}
         paths={'internal':('内部数据目录',self.owner.preferences.parent),'database':('项目数据库目录',self.owner.workspace.root),'logs':('日志目录',self.owner.preferences.parent/'logs'),'output':('作品总目录',self.owner.output_files.root)}
         paths.update({name:(name+'输出目录',path) for name,path in self.owner.output_files.paths().items()})
@@ -164,6 +166,19 @@ class SettingsPage(QWidget,TTSettingsWidgets):
         self.owner.options['legacy_test_128_ack:'+c.id]='auto' if use_auto else 'keep_manual'; self.owner.save_options(); self.legacy_controls[key][0].hide()
         self.info('选择已保存','推荐自动模式已保存；原手动值与凭据保留。' if use_auto else '保留手动输出设置，今后仍可在本页明确调整。')
     def set_sound_preference(self,enabled): self.owner.options['task_completion_sound']=bool(enabled); self.owner.save_options()
+    def refresh_audio_files(self):
+        from app.ui.notifications import available_audio,DEFAULT_AUDIO
+        chosen=self.owner.options.get('task_completion_audio',DEFAULT_AUDIO); self.sound_selector.blockSignals(True); self.sound_selector.clear()
+        for filename,title in available_audio(): self.sound_selector.addItem(title,filename)
+        index=self.sound_selector.findData(chosen)
+        if index<0: index=self.sound_selector.findData(DEFAULT_AUDIO)
+        self.sound_selector.setCurrentIndex(max(0,index)); self.sound_selector.blockSignals(False); self.sound_preview.setEnabled(self.sound_selector.count()>0)
+    def set_audio_preference(self,*_):
+        filename=self.sound_selector.currentData()
+        if filename: self.owner.options['task_completion_audio']=filename; self.owner.save_options()
+    def open_audio_folder(self):
+        from app.ui.notifications import audio_directory
+        folder=audio_directory(); folder.mkdir(parents=True,exist_ok=True); self.open_folder(folder)
     def info(self,title,text): self.status.setText(title+'：'+text); self.owner.assistant.refresh_models()
     def error(self,title,text):
         from app.providers.contracts import redact

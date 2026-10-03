@@ -80,6 +80,7 @@ class MainWindow(QMainWindow):
         left.addWidget(self.navigation,1)
         # Retain the internal action for old project data; remove its independent navigation.
         self.materials_nav=button('资料与规则',lambda:self.run(self.open_materials_page),quiet=True); self.materials_nav.setCheckable(True); self.materials_nav.hide()
+        self.sidebar_toggle=button('收起侧栏',self.toggle_sidebar,quiet=True); self.sidebar_toggle.setObjectName('sidebarAction'); left.addWidget(self.sidebar_toggle)
         self.settings_nav=button('设置',lambda:self.run(lambda:self.navigate(4)),quiet=True); self.settings_nav.setCheckable(True); self.settings_nav.setObjectName('sidebarAction'); left.addWidget(self.settings_nav); layout.addWidget(self.sidebar)
         self.splitter=QSplitter(); self.pages=QStackedWidget(); self.pages.setSizePolicy(QSizePolicy.Policy.Ignored,QSizePolicy.Policy.Ignored); self.home=ProjectHome(self); self.pages.addWidget(self.home)
         self.creators={kind:(CreationPage(self,kind) if kind=='script' else WritingPage(self,kind)) for kind in ('script','novel','rewrite')}
@@ -96,8 +97,10 @@ class MainWindow(QMainWindow):
         self.rules_retry=button('创作规则暂时无法加载，请重试',self.retry_rules); top.insertWidget(1,self.rules_retry); self.rules_retry.setVisible(bool(self.registry.error))
         self.splitter.addWidget(self.center); self.splitter.addWidget(self.assistant); self.splitter.setStretchFactor(0,1)
         self.splitter.setChildrenCollapsible(False)
+        self.splitter.setHandleWidth(10); self.splitter_handle=self.splitter.handle(1); self.splitter_handle.setCursor(Qt.CursorShape.SizeHorCursor); self.splitter_handle.setToolTip('拖动调整助手宽度，最高50%；双击均分工作区')
         sizes=self.options.get('splitter_sizes',[870,336])
-        self.assistant_width=max(300,min(420,sizes[1] if isinstance(sizes,list) and len(sizes)==2 and isinstance(sizes[1],int) and sizes[1]>0 else 336))
+        self.assistant_width=max(300,sizes[1] if isinstance(sizes,list) and len(sizes)==2 and isinstance(sizes[1],int) and sizes[1]>0 else 336)
+        ratio=self.options.get('assistant_ratio'); self.assistant_ratio=ratio if isinstance(ratio,(int,float)) and 0<ratio<=.5 else None; self.adjusting_layout=False
         self.splitter.setSizes([900,self.assistant_width]); self.splitter.splitterMoved.connect(self.save_layout); layout.addWidget(self.splitter,1)
         self.materials_page=QWidget(); materials_layout=QVBoxLayout(self.materials_page); materials_layout.setContentsMargins(24,20,24,20)
         for page in self.creators.values(): self.assistant.model.currentIndexChanged.connect(page.update_model_label)
@@ -128,7 +131,7 @@ class MainWindow(QMainWindow):
     def play_task_sound(self,force=False):
         if not force and (not self.options.get('task_completion_sound',True) or QApplication.instance().property('native_hidden_test')): return False
         from app.ui.notifications import play_completion_sound
-        return play_completion_sound()
+        return play_completion_sound(self.options.get('task_completion_audio'))
     def set_theme(self,name):
         candidate_states={page:page.candidate_pane.view_state() for page in self.creators.values() if getattr(page,'candidate_pane',None)}
         self.theme=name; self.options['theme']=name; size=max(12,min(32,int(self.options.get('editor_font_size',18)))); self.options['editor_font_size']=size; self.setStyleSheet(style(name,size))
@@ -150,6 +153,7 @@ class MainWindow(QMainWindow):
         color=theme_tokens(name)['muted']
         for index,shape in enumerate(('folder','movie','book','arrows-exchange')): self.navigation.item(index).setIcon(icon(shape,color,18))
         self.settings_nav.setIcon(icon('settings',color,18)); self.settings_nav.setIconSize(QSize(18,18)); self.materials_nav.setIcon(icon('folder',color,18)); self.materials_nav.setIconSize(QSize(18,18)); self.save_options()
+        self.update_sidebar_layout()
         self.assistant.send_button.setIcon(icon('send',theme_tokens(name)['button'],18)); self.assistant.send_button.setIconSize(QSize(18,18))
         if hasattr(self.assistant,'apply_theme'): self.assistant.apply_theme()
     def set_font(self,size):
@@ -167,14 +171,28 @@ class MainWindow(QMainWindow):
     def nativeEvent(self,event_type,message):
         return super().nativeEvent(event_type,message)
     def save_layout(self,*_):
+        if self.adjusting_layout: return
         sizes=self.splitter.sizes()
-        if self.splitter.orientation()==Qt.Orientation.Horizontal and self.assistant.isVisible() and len(sizes)>1 and sizes[1]>=self.assistant.minimumWidth(): self.assistant_width=min(420,sizes[1])
+        if self.splitter.orientation()==Qt.Orientation.Horizontal and self.assistant.isVisible() and len(sizes)>1 and sizes[1]>=self.assistant.minimumWidth():
+            self.assistant_width=sizes[1]; self.assistant_ratio=min(.5,sizes[1]/max(1,sum(sizes))); self.options['assistant_ratio']=self.assistant_ratio
         # Hidden pages and explicit collapse must not replace the expanded width with zero.
         self.options['splitter_sizes']=[max(1,sizes[0]),self.assistant_width]; self.save_options()
     def set_assistant_visible(self,visible):
         if not visible: self.save_layout()
         self.assistant_requested=visible; self.position_assistant(explicit=True)
-    def narrow_layout(self): return self.width()-self.sidebar.width()-self.assistant_width<560
+    def narrow_layout(self): return self.width()-self.sidebar.width()<900
+    def toggle_sidebar(self):
+        self.options['sidebar_collapsed']=self.sidebar.width()>56; self.update_sidebar_layout(); self.position_assistant(explicit=True); self.save_options()
+    def update_sidebar_layout(self):
+        from app.ui.icons import icon
+        compact=self.options.get('sidebar_collapsed',self.width()<1000); self.sidebar.setFixedWidth(56 if compact else 160); self.sidebar.layout().setContentsMargins(4 if compact else 12,16,4 if compact else 12,20)
+        for i,name in enumerate(NAVIGATION[:4]):
+            item=self.navigation.item(i); item.setText('' if compact else name); item.setToolTip(name); item.setData(Qt.ItemDataRole.AccessibleTextRole,name)
+        for control,text in [(self.materials_nav,'资料与规则'),(self.settings_nav,'设置')]: control.setText('' if compact else text); control.setAccessibleName(text); control.setToolTip(text)
+        self.sidebar_toggle.setText('' if compact else '收起侧栏'); self.sidebar_toggle.setToolTip('展开侧栏' if compact else '收起侧栏'); self.sidebar_toggle.setAccessibleName(self.sidebar_toggle.toolTip()); self.sidebar_toggle.setIcon(icon('layout-sidebar-right-collapse' if compact else 'layout-sidebar-left-collapse',theme_tokens(self.theme)['muted'],18)); self.sidebar_toggle.setIconSize(QSize(18,18))
+    def equal_assistant_layout(self):
+        if self.narrow_layout(): return
+        self.assistant_ratio=.5; self.options['assistant_ratio']=.5; self.set_assistant_visible(True); self.save_layout()
     def position_assistant(self,explicit=False):
         if not hasattr(self,'assistant_width'): return
         narrow=self.narrow_layout(); previous=getattr(self,'narrow_mode',False)
@@ -185,13 +203,19 @@ class MainWindow(QMainWindow):
         self.narrow_mode=narrow
         self.assistant_overlay=False
         self.splitter.setOrientation(Qt.Orientation.Vertical if narrow else Qt.Orientation.Horizontal)
-        self.assistant.setMaximumWidth(16777215 if narrow else 420)
+        self.splitter_handle.setCursor(Qt.CursorShape.SizeVerCursor if narrow else Qt.CursorShape.SizeHorCursor)
+        available=max(1,self.width()-self.sidebar.width()-self.splitter.handleWidth()); limit=max(300,available//2)
+        self.assistant.setMaximumWidth(16777215 if narrow else limit)
         self.assistant.set_compact(False)
         assistant_only=narrow and self.assistant_requested
         self.pages.setVisible(not assistant_only); self.center.setMaximumHeight(self.topbar.height() if assistant_only else 16777215); self.center.setMinimumHeight(self.topbar.height() if assistant_only else 0)
         if self.assistant_requested:
-            if narrow: self.splitter.setSizes([self.topbar.height(),max(1,self.splitter.height()-self.topbar.height())])
-            else: self.splitter.setSizes([max(1,self.splitter.width()-self.assistant_width),self.assistant_width])
+            self.adjusting_layout=True
+            try:
+                if narrow: self.splitter.setSizes([self.topbar.height(),max(1,self.splitter.height()-self.topbar.height())])
+                else:
+                    desired=round(available*self.assistant_ratio) if self.assistant_ratio is not None else self.assistant_width; self.assistant_width=max(300,min(limit,desired)); self.splitter.setSizes([max(1,available-self.assistant_width),self.assistant_width])
+            finally: self.adjusting_layout=False
         self.assistant.setVisible(self.assistant_requested)
         self.assistant_toggle.setText(('返回正文' if self.assistant_requested else 'AI 助手') if narrow else ('收起 AI 助手' if self.assistant_requested else 'AI 助手'))
         self.assistant_toggle.setChecked(self.assistant_requested)
@@ -201,11 +225,7 @@ class MainWindow(QMainWindow):
             from app.ui.commercial_controls import position_resize_grips
             position_resize_grips(self)
         if hasattr(self,'sidebar'):
-            compact=self.width()<1000; self.sidebar.setFixedWidth(56 if compact else 160)
-            self.sidebar.layout().setContentsMargins(4 if compact else 12,16,4 if compact else 12,20)
-            for i,name in enumerate(NAVIGATION[:4]):
-                item=self.navigation.item(i); item.setText('' if compact else name); item.setToolTip(name); item.setData(Qt.ItemDataRole.AccessibleTextRole,name)
-            for control,text in [(self.materials_nav,'资料与规则'),(self.settings_nav,'设置')]: control.setText('' if compact else text); control.setAccessibleName(text); control.setToolTip(text)
+            if hasattr(self,'sidebar_toggle'): self.update_sidebar_layout()
             self.position_assistant()
     def navigate(self,index):
         if not hasattr(self,'pages') or index<0: return
@@ -1018,6 +1038,8 @@ class MainWindow(QMainWindow):
             area=area.parentWidget()
         event.accept(); return True
     def eventFilter(self,watched,event):
+        if watched is getattr(self,'splitter_handle',None) and event.type()==QEvent.Type.MouseButtonDblClick and event.button()==Qt.MouseButton.LeftButton:
+            self.equal_assistant_layout(); return True
         if watched is self and event.type()==QEvent.Type.ApplicationPaletteChange: QTimer.singleShot(0,self,lambda:self.set_theme(self.theme))
         if event.type()==QEvent.Type.Wheel and isinstance(watched,QWidget):
             parent=watched

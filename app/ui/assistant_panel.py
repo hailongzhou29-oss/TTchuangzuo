@@ -33,7 +33,7 @@ def display_reply(text):
 
 class AssistantPanel(QFrame):
     def __init__(self,owner):
-        super().__init__(); self.owner=owner; self.setObjectName('assistant'); self.setMinimumWidth(300); self.setMaximumWidth(420); self.message_rows=[]; self.rendered_rows=[]
+        super().__init__(); self.owner=owner; self.setObjectName('assistant'); self.setMinimumWidth(300); self.message_rows=[]; self.rendered_rows=[]
         try: self.font_size=max(14,min(24,int(owner.options.get('assistant_font_size',16))))
         except (TypeError,ValueError): self.font_size=16
         layout=QVBoxLayout(self); layout.setContentsMargins(0,0,0,0); layout.setSpacing(0)
